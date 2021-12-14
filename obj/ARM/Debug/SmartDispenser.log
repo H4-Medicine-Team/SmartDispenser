@@ -1,0 +1,30 @@
+﻿  Validating sources
+  Copying sources remotely to '10.108.130.243'
+  Validating architecture
+  Validating architecture
+  Starting remote build
+  Compiling sources:
+  main.cpp
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,33): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,33): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,33): warning :       |                       ~~~~~~~~~~^
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,46): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,46): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,46): warning :       |                                    ~~~~~~~~~~^
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,59): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,59): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,59): warning :       |                                                 ~~~~~~~~~~^~~~~
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,76): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,76): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,76): warning :       |                                                                  ~~~~~~~~~~^~~~~~
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,68): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,68): warning :    33 |         DrawText("Congrats! You created your first window!", start.x, start.y, 20, Color{100,50,250,255});
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,68): warning :       |                                                              ~~~~~~^
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,77): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,77): warning :    33 |         DrawText("Congrats! You created your first window!", start.x, start.y, 20, Color{100,50,250,255});
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,77): warning :       |                                                                       ~~~~~~^
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(12,9): warning : unused variable ‘lastGesture’ [-Wunused-variable]
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(12,9): warning :    12 |     int lastGesture = GESTURE_NONE;
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(12,9): warning :       |         ^~~~~~~~~~~
+  Linking objects
+  SmartDispenser.vcxproj -> C:\Users\marc3763\source\repos\SmartDispenser\bin\ARM\Debug\SmartDispenser.out

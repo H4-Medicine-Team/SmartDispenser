@@ -1,0 +1,12 @@
+﻿  Validating sources
+  Copying sources remotely to '10.108.130.243'
+  Validating architecture
+  Validating architecture
+C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Application Type\Linux\1.0\Linux.targets(202,5): warning : Current project architecture 'x64' is incompatible with the remote system architecture 'ARM' ('armv7l'). Please switch the project architecture to 'ARM' in Configuration Manager. If you are cross-compiling you can ignore this warning.
+  Starting remote build
+  Compiling sources:
+  main.cpp
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(1,10): error : raylib.h: No such file or directory
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(1,10): error :     1 | #include "raylib.h"
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(1,10): error :       |          ^~~~~~~~~~
+C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(1,10): error : compilation terminated.
