@@ -83,9 +83,15 @@
     <IncludePath>$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Page.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Gui.h" />
+    <ClInclude Include="Page.h" />
+    <ClInclude Include="PageHandler.h" />
     <ClInclude Include="vendor\Raylib\Raylib.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
