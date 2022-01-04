@@ -4,27 +4,78 @@
   Validating architecture
   Starting remote build
   Compiling sources:
+  Button.cpp
+C:\Repos\SmartDispenser\Gui\Button.h(50,8): warning : ‘Gui::Button::m_LastClicked’ will be initialized after [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(50,8): warning :    50 |   bool m_LastClicked;
+C:\Repos\SmartDispenser\Gui\Button.h(50,8): warning :       |        ^~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning : ‘void (* Gui::Button::m_ClickCallback)(Gui::Button*, bool)’ [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :    46 |   void (*m_ClickCallback)(Button* button, bool isPressed);
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :       |          ^~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning : when initialized here [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :    16 |   Button(const char* text, const Vector2& position, const Vector2& size, const ButtonStyle& style)
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :       |   ^~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning : ‘Gui::Button::m_ClickCallback’ will be initialized after [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :    46 |   void (*m_ClickCallback)(Button* button, bool isPressed);
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :       |          ^~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(22,21): warning : base ‘Gui::Gui’ [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning : when initialized here [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :    16 |   Button(const char* text, const Vector2& position, const Vector2& size, const ButtonStyle& style)
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :       |   ^~~~~~
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,26): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,26): warning :    32 |   DrawRectangle(center.x - rectHalfSize.x, center.y - rectHalfSize.y, m_Size.x, m_Size.y, m_Style.backgroundColor);
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,26): warning :       |                 ~~~~~~~~~^~~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,53): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,53): warning :    32 |   DrawRectangle(center.x - rectHalfSize.x, center.y - rectHalfSize.y, m_Size.x, m_Size.y, m_Style.backgroundColor);
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,53): warning :       |                                            ~~~~~~~~~^~~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,78): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,78): warning :    32 |   DrawRectangle(center.x - rectHalfSize.x, center.y - rectHalfSize.y, m_Size.x, m_Size.y, m_Style.backgroundColor);
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,78): warning :       |                                                                       ~~~~~~~^
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,88): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,88): warning :    32 |   DrawRectangle(center.x - rectHalfSize.x, center.y - rectHalfSize.y, m_Size.x, m_Size.y, m_Style.backgroundColor);
+C:\Repos\SmartDispenser\Gui\Button.cpp(32,88): warning :       |                                                                                 ~~~~~~~^
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,72): warning : narrowing conversion of ‘(MeasureText(((Gui::Button*)this)->Gui::Button::m_Text, ((Gui::Button*)this)->Gui::Button::m_Style.Gui::ButtonStyle::textSize) / 2)’ from ‘int’ to ‘float’ [-Wnarrowing]
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,72): warning :    38 |   const Vector2 textHalfSize = { MeasureText(m_Text, m_Style.textSize) / 2, m_Style.textSize / 2 };
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,72): warning :       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,72): warning : conversion from ‘int’ to ‘float’ may change value [-Wconversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,94): warning : narrowing conversion of ‘(((Gui::Button*)this)->Gui::Button::m_Style.Gui::ButtonStyle::textSize / 2)’ from ‘int’ to ‘float’ [-Wnarrowing]
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,94): warning :    38 |   const Vector2 textHalfSize = { MeasureText(m_Text, m_Style.textSize) / 2, m_Style.textSize / 2 };
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,94): warning :       |                                                                             ~~~~~~~~~~~~~~~~~^~~
+C:\Repos\SmartDispenser\Gui\Button.cpp(38,94): warning : conversion from ‘int’ to ‘float’ may change value [-Wconversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(39,29): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(39,29): warning :    39 |   DrawText(m_Text, center.x - textHalfSize.x, center.y - textHalfSize.y, m_Style.textSize, m_Style.textColor);
+C:\Repos\SmartDispenser\Gui\Button.cpp(39,29): warning :       |                    ~~~~~~~~~^~~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.cpp(39,56): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\Repos\SmartDispenser\Gui\Button.cpp(39,56): warning :    39 |   DrawText(m_Text, center.x - textHalfSize.x, center.y - textHalfSize.y, m_Style.textSize, m_Style.textColor);
+C:\Repos\SmartDispenser\Gui\Button.cpp(39,56): warning :       |                                               ~~~~~~~~~^~~~~~~~~~~~~~~~
   main.cpp
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,33): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,33): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,33): warning :       |                       ~~~~~~~~~~^
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,46): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,46): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,46): warning :       |                                    ~~~~~~~~~~^
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,59): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,59): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,59): warning :       |                                                 ~~~~~~~~~~^~~~~
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,76): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,76): warning :    32 |         DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(32,76): warning :       |                                                                  ~~~~~~~~~~^~~~~~
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,68): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,68): warning :    33 |         DrawText("Congrats! You created your first window!", start.x, start.y, 20, Color{100,50,250,255});
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,68): warning :       |                                                              ~~~~~~^
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,77): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,77): warning :    33 |         DrawText("Congrats! You created your first window!", start.x, start.y, 20, Color{100,50,250,255});
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(33,77): warning :       |                                                                       ~~~~~~^
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(12,9): warning : unused variable ‘lastGesture’ [-Wunused-variable]
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(12,9): warning :    12 |     int lastGesture = GESTURE_NONE;
-C:\Users\marc3763\source\repos\SmartDispenser\main.cpp(12,9): warning :       |         ^~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(50,8): warning : ‘Gui::Button::m_LastClicked’ will be initialized after [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(50,8): warning :    50 |   bool m_LastClicked;
+C:\Repos\SmartDispenser\Gui\Button.h(50,8): warning :       |        ^~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning : ‘void (* Gui::Button::m_ClickCallback)(Gui::Button*, bool)’ [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :    46 |   void (*m_ClickCallback)(Button* button, bool isPressed);
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :       |          ^~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning : when initialized here [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :    16 |   Button(const char* text, const Vector2& position, const Vector2& size, const ButtonStyle& style)
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :       |   ^~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning : ‘Gui::Button::m_ClickCallback’ will be initialized after [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :    46 |   void (*m_ClickCallback)(Button* button, bool isPressed);
+C:\Repos\SmartDispenser\Gui\Button.h(46,10): warning :       |          ^~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Button.h(22,21): warning : base ‘Gui::Gui’ [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning : when initialized here [-Wreorder]
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :    16 |   Button(const char* text, const Vector2& position, const Vector2& size, const ButtonStyle& style)
+C:\Repos\SmartDispenser\Gui\Button.h(16,3): warning :       |   ^~~~~~
+  Page.cpp
+C:\Repos\SmartDispenser\Gui\Page.cpp(9,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
+C:\Repos\SmartDispenser\Gui\Page.cpp(9,21): warning :     9 |   for (int i = 0; i < m_GuiBlocks.size(); i++)
+C:\Repos\SmartDispenser\Gui\Page.cpp(9,21): warning :       |                   ~~^~~~~~~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Page.cpp(10,4): warning : deleting object of abstract class type ‘Gui::Gui’ which has non-virtual destructor will cause undefined behavior [-Wdelete-non-virtual-dtor]
+C:\Repos\SmartDispenser\Gui\Page.cpp(10,4): warning :    10 |    delete m_GuiBlocks[i];
+C:\Repos\SmartDispenser\Gui\Page.cpp(10,4): warning :       |    ^~~~~~~~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Page.cpp(20,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
+C:\Repos\SmartDispenser\Gui\Page.cpp(20,21): warning :    20 |   for (int i = 0; i < m_GuiBlocks.size(); i++)
+C:\Repos\SmartDispenser\Gui\Page.cpp(20,21): warning :       |                   ~~^~~~~~~~~~~~~~~~~~~~
+C:\Repos\SmartDispenser\Gui\Page.cpp(31,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
+C:\Repos\SmartDispenser\Gui\Page.cpp(31,21): warning :    31 |   for (int i = 0; i < m_GuiBlocks.size(); i++)
+C:\Repos\SmartDispenser\Gui\Page.cpp(31,21): warning :       |                   ~~^~~~~~~~~~~~~~~~~~~~
   Linking objects
-  SmartDispenser.vcxproj -> C:\Users\marc3763\source\repos\SmartDispenser\bin\ARM\Debug\SmartDispenser.out
+  SmartDispenser.vcxproj -> C:\Repos\SmartDispenser\bin\ARM\Debug\SmartDispenser.out

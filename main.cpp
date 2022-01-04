@@ -1,39 +1,61 @@
 #include "Raylib.h"
-#include <string.h>
-#include <stdio.h>
-#include "Button.h"
+#include "Gui/PageHandler.h"
+#include "Gui/Button.h"
+
+#include <iostream>
+
+const static int screen_width = 800;
+const static int screen_height = 450;
+
+static void medCall(Gui::Button* btn, bool isPressed) {
+    Gui::ButtonStyle style = btn->GetStyle();
+
+    if (isPressed)
+        style.textColor = { 0, 255, 0, 255 };
+    else
+        style.textColor = { 0, 0, 0, 255 };
+
+    btn->SetStyle(style);
+}
+
+class PageE : public Gui::Page {
+public:
+    PageE() {
+        // Styles
+        Gui::ButtonStyle bStyle = {
+            {255, 0, 0, 255},
+            {0, 0, 0, 255},
+            20
+        };
+
+        Vector2 buttonSize = { 300, 200 };
+
+
+        // GUi
+        Gui::Button* medicineCardBtn = new Gui::Button("Medicinkort", { 400, 225 }, buttonSize, bStyle);
+
+        // Add
+        Add(medicineCardBtn);
+        
+        // Callbacks
+        medicineCardBtn->SetClickCallback(medCall);
+    }
+};
+
 int main(void)
 {
-    InitWindow(800, 450, "raylib [core] example - basic window");
-    Vector2 touchPosition = { 0, 0 };
-    Rectangle touchArea = { 220, 10, 800 - 230.0f, 450 - 20.0f };
-
-    int currentGesture = GESTURE_NONE;
-    int lastGesture = GESTURE_NONE;
-
-    Vector2 start = {200, 200};
-
+    InitWindow(screen_width, screen_height, "raylib [core] example - basic window");
     SetGesturesEnabled(GESTURE_TAP);
+ 
+    Gui::PageHandler::Get().Add(new PageE(), "one");
+    Gui::PageHandler::Get().SetPage("one");
 
     while (!WindowShouldClose())
     {
-        currentGesture = GetGestureDetected();
-        touchPosition = GetTouchPosition(0);
-
-        printf("x: %3.1f y: %3.1f touch: %d\n", touchPosition.x, touchPosition.y, currentGesture);
-
-        if (CheckCollisionPointRec(touchPosition, touchArea) && (touchPosition.x > 0 && touchPosition.y > 0))
-        {
-            start = Vector2{ touchPosition.x, touchPosition.y };
-        }
-
         BeginDrawing();
-        ClearBackground(Color{10,250,50,255});
-        DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
-        DrawText("Congrats! You created your first window!", start.x, start.y, 20, Color{100,50,250,255});
+        ClearBackground({ 255, 255, 255, 255 });
+        Gui::PageHandler::Get().Loop();
         EndDrawing();
-
-
     }
 
     CloseWindow();
