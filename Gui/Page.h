@@ -10,6 +10,8 @@ namespace Gui {
 		~Page();
 	protected:
 		void Add(Gui* guiBlock);
+		virtual void Start() = 0;
+		virtual void Unload();
 	private:
 		void Update();
 		void Draw();

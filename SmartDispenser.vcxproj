@@ -86,12 +86,19 @@
     <ClCompile Include="Gui\Button.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Gui\Page.cpp" />
+    <ClCompile Include="Gui\ScrollView.cpp" />
+    <ClCompile Include="Gui\ScrollBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gui\Button.h" />
     <ClInclude Include="Gui\Gui.h" />
+    <ClInclude Include="MedicineCardPage.h" />
     <ClInclude Include="Gui\Page.h" />
     <ClInclude Include="Gui\PageHandler.h" />
+    <ClInclude Include="Gui\SmdGui.h" />
+    <ClInclude Include="MainPage.h" />
+    <ClInclude Include="Gui\ScrollView.h" />
+    <ClInclude Include="Gui\ScrollBar.h" />
     <ClInclude Include="vendor\Raylib\Raylib.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">

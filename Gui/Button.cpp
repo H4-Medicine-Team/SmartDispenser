@@ -4,11 +4,13 @@
 namespace Gui {
 	void Button::Update()
 	{
+		if (!m_ClickCallback)
+			return;
+
 		bool currentlyClicked = CheckForClick();
 
 		if (currentlyClicked != m_LastClicked)
-			if (m_ClickCallback)
-				m_ClickCallback(this, currentlyClicked);
+			m_ClickCallback(this, currentlyClicked);
 
 		m_LastClicked = currentlyClicked;
 	}
@@ -26,25 +28,26 @@ namespace Gui {
 
 	void Button::DrawBox()
 	{
-		const Vector2& center = GetPos();
+		const Vector2& pos = GetPos();
+		const Vector2& size = GetSize();
 
-		const Vector2 rectHalfSize = { m_Size.x / 2, m_Size.y / 2 };
-		DrawRectangle(center.x - rectHalfSize.x, center.y - rectHalfSize.y, m_Size.x, m_Size.y, m_Style.backgroundColor);
+		DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.backgroundColor);
 	}
 
 	void Button::DrawString()
 	{
-		const Vector2& center = GetPos();
-		const Vector2 textHalfSize = { MeasureText(m_Text, m_Style.textSize) / 2, m_Style.textSize / 2 };
-		DrawText(m_Text, center.x - textHalfSize.x, center.y - textHalfSize.y, m_Style.textSize, m_Style.textColor);
+		const Vector2& center = GetCenter();
+		const Vector2 textHalfSize = { MeasureText(m_Text.c_str(), m_Style.textSize) / 2, m_Style.textSize / 2 };
+		DrawText(m_Text.c_str(), center.x - textHalfSize.x, center.y - textHalfSize.y, m_Style.textSize, m_Style.textColor);
 	}
 
 	bool Button::CheckForClick()
 	{
 		Vector2 touchPos = GetTouchPosition(0);
-		const Vector2& center = GetPos();
+		const Vector2& pos = GetPos();
+		const Vector2& size = GetSize();
 
-		if (CheckCollisionPointRec(touchPos, { center.x - (m_Size.x / 2), center.y - (m_Size.y / 2), m_Size.x, m_Size.y}))
+		if (CheckCollisionPointRec(touchPos, { pos.x, pos.y, size.x, size.y}))
 			return true;
 
 		return false;

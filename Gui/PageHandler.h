@@ -13,7 +13,11 @@ namespace Gui {
 		}
 
 		inline void SetPage(const std::string& name) {
+			if (m_CurrentPage)
+				m_CurrentPage->Unload();
+
 			m_CurrentPage = m_Pages.find(name)->second;
+			m_CurrentPage->Start();
 		}
 
 		inline void Loop() {
