@@ -2,6 +2,7 @@
 #include <Raylib.h>
 #include "Gui.h"
 #include <string>
+#include <functional>
 
 namespace Gui {
 
@@ -22,25 +23,38 @@ namespace Gui {
 			Gui::Gui(position, size) {}
 
 	public:
+		// Get the current for the button
 		const std::string& GetText() { return m_Text; }
+
+		// Get the buttons current style
 		const ButtonStyle& GetStyle() { return m_Style; }
 
+		// Set the current text
 		void SetText(const char* text) { m_Text = text; }
-		void SetStyle(const ButtonStyle& style) { m_Style = style; }
-		void SetClickCallback(void (*callback)(Button* button, bool isPressed));
 
-	public:
+		// Set the current style
+		void SetStyle(const ButtonStyle& style) { m_Style = style; }
+
+		// Set the current callback for when clicking the button
+		void SetClickCallback(std::function<void(Button* button, bool isPressed)> clickCallback);
+
+	protected:
 		void Update() override;
 		void Draw() override;
 
 	private:
+		// Draws the box / rectangle.
 		void DrawBox();
+
+		// Draws the text / string for the button
 		void DrawString();
+
+		// Checks whether the button has been clicked
 		bool CheckForClick();
 
 	private:
 		std::string m_Text;
-		void (*m_ClickCallback)(Button* button, bool isPressed);
+		std::function<void(Button* button, bool isPressed)> m_ClickCallback;
 
 		ButtonStyle m_Style;
 

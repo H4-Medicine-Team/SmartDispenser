@@ -1,8 +1,25 @@
 #include "ScrollView.h"
 
 #include <iostream>
+#include <functional>
 
 namespace Gui {
+	ScrollView::ScrollView(const Vector2& position, const Vector2& size, const Vector2& barSize, const ScrollViewStyle& style)
+		: m_Style(style),
+		m_Blocks(0),
+		m_ScrollBar(
+			{position.x + size.x - barSize.x, position.y},
+			{barSize.x, size.y},
+			barSize,
+			{position.x + size.x - barSize.x, position.y},
+			style.barStyle
+		),
+		Gui(position, size) 
+	{
+		m_ScrollBar.SetScrollCallback(std::bind(&ScrollView::OnScrollBarPositionChanged, this, std::placeholders::_1));
+		m_ScrollBar.SetIsVisible(false);
+	}
+
 	ScrollView::~ScrollView()
 	{
 		for (int i = 0; i < m_Blocks.size(); i++)
@@ -11,39 +28,30 @@ namespace Gui {
 
 	void ScrollView::Add(Gui* block)
 	{
+		m_Blocks.push_back(block);
+
 		const Vector2 nextPos = GetPositionForNextItem();
 
 		block->SetPos(nextPos);
-		block->SetSize(GetSize().x - m_Style.scrollBarSize.x, m_Style.minHeight);
+		block->SetSize(GetSize().x - m_ScrollBar.GetSize().x, m_Style.minHeight);
 
-		m_Blocks.push_back(block);
+		bool shouldShowBar = GetChildrenHeight() > GetSize().y;
+		m_ScrollBar.SetIsVisible(shouldShowBar);		
 	}
 
 	void ScrollView::Update()
 	{
-		const Vector2 mPos = GetMousePosition();
-		const Vector2& scrollPos = m_ScrollBarPosition;
-		const Vector2& scrollSize = m_Style.scrollBarSize;
-		const Vector2& pos = GetPos();
-		const Vector2& size = GetSize();
+		if (m_ScrollBar.IsVisible())
+			m_ScrollBar.Update();
 
-		int deltaY = mPos.y - m_LastMousePos.y;
-		m_LastMousePos = mPos;
-
-		if (!CheckCollisionPointRec(mPos, { scrollPos.x, scrollPos.y, scrollSize.x, scrollSize.y }))
-			return;
-
-		if (deltaY > 50 || deltaY < -50)
-			return;
-
-		if (deltaY + scrollPos.y < pos.y || deltaY + scrollPos.y + scrollSize.y > pos.y + size.y)
-			return;
-
-		m_ScrollBarPosition.y += deltaY;
-
+		// Update children
 		for (int i = 0; i < m_Blocks.size(); i++)
-			m_Blocks[i]->Translate(0, -deltaY);
+		{
+			if (!m_Blocks[i]->IsVisible())
+				continue;
 
+			m_Blocks[i]->Update();
+		}
 	}
 
 	void ScrollView::Draw()
@@ -58,28 +66,54 @@ namespace Gui {
 
 		// Draw children
 		for (int i = 0; i < m_Blocks.size(); i++)
+		{
+			if (!m_Blocks[i]->IsVisible())
+				continue;
+
 			m_Blocks[i]->Draw();
+		}
 
-		// Draw scrollbar
-		DrawRectangle(m_ScrollBarPosition.x, m_ScrollBarPosition.y, m_Style.scrollBarSize.x, m_Style.scrollBarSize.y, m_Style.scrollBarColor);
-
+		if (m_ScrollBar.IsVisible())
+			m_ScrollBar.Draw();
 
 		EndScissorMode();
 	}
 
-	int ScrollView::GetMaxItems()
-	{
-		return (int)(GetSize().y / m_Style.minHeight);
-	}
 	const Vector2 ScrollView::GetPositionForNextItem()
 	{
-		if (m_Blocks.size() == 0)
-			return GetPos();
-
 		int index = m_Blocks.size() - 1;
 
-		const Vector2& lastPos = m_Blocks[index]->GetPos();
+		return GetDefaultPositionForItem(index, GetPos());
+	}
 
-		return { lastPos.x, (lastPos.y + m_Style.minHeight) + m_Style.yMargin };
+	const Vector2 ScrollView::GetDefaultPositionForItem(int index, const Vector2& startPos)
+	{
+		return {
+			startPos.x,
+			startPos.y + (index * m_Style.minHeight) + (m_Style.yMargin * index)
+		};
+	}
+
+	void ScrollView::OnScrollBarPositionChanged(float percent)
+	{
+		const Vector2& startPos = GetPos();
+		const Vector2& size = GetSize();
+
+		int itemCount = m_Blocks.size();
+		float fullListLength = GetChildrenHeight();
+		const float translateY = (fullListLength - size.y) * percent;
+
+		for (int i = 0; i < itemCount; i++)
+		{
+			const Vector2 defPos = GetDefaultPositionForItem(i, startPos);
+
+			m_Blocks[i]->SetPos(defPos.x, defPos.y - translateY);
+		}
+	}
+
+	const float ScrollView::GetChildrenHeight()
+	{
+		int itemCount = m_Blocks.size();
+		return (itemCount * m_Style.minHeight) + (m_Style.yMargin * itemCount);
 	}
 }

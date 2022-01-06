@@ -11,10 +11,7 @@ int main(void)
     // Create "window"
     InitWindow(800, 480, "Smd");
 
-    int monitor = GetCurrentMonitor();
-    int w = GetMonitorWidth(monitor);
-    int h = GetMonitorHeight(monitor);
-
+    // Enable gestures
     SetGesturesEnabled(GESTURE_TAP);
  
     // Add pages
@@ -22,7 +19,7 @@ int main(void)
     Gui::PageHandler::Get().Add(new Page::MedicineCardPage(), "medicinecard");
 
     // Set current page
-    Gui::PageHandler::Get().SetPage("main");
+    Gui::PageHandler::Get().SetPage("medicinecard");
 
     // Update & draw loop
     while (!WindowShouldClose())

@@ -2,44 +2,49 @@
 #include "Gui.h"
 #include <Raylib.h>
 #include <vector>
-#include "Button.h"
+#include "ScrollBar.h"
 
 namespace Gui {
 	struct ScrollViewStyle {
 		Color backgrondColor;
 		int minHeight;
 		int yMargin;
-		Vector2 scrollBarSize;
-		Color scrollBarColor;
+		ScrollBarStyle barStyle;
 	};
 
 	class ScrollView : public Gui
 	{
 	public:
-		ScrollView(const Vector2& position, const Vector2& size, const ScrollViewStyle& style)
-			: m_Style(style),
-			m_Blocks(0),
-			m_ScrollBarPosition({position.x + size.x - style.scrollBarSize.x, position.y}),
-			m_LastMousePos(),
-			Gui(position, size) {}
-
+		ScrollView(const Vector2& position, const Vector2& size, const Vector2& barSize, const ScrollViewStyle& style);
 		~ScrollView();
 	public:
+		// Adds a gui element to the list in the scroll view
 		void Add(Gui* block);
 
 	protected:
+		// Updates the current scrollview and all its children
 		void Update() override;
+
+		// Draws the current scrollview and all its children
 		void Draw() override;
 
 	private:
-		int GetMaxItems();
+		// returns the position for the next item
 		const Vector2 GetPositionForNextItem();
+
+		// Gets the default position for a element based upon it's position in the list
+		const Vector2 GetDefaultPositionForItem(int index, const Vector2& startPos);
+
+		// Called when the scroll bar has changed position
+		void OnScrollBarPositionChanged(float percent);
+
+		// Gets the full length of the childrens in the scrollview
+		const float GetChildrenHeight();
 
 	private:
 		ScrollViewStyle m_Style;
 		std::vector<Gui*> m_Blocks;
-		Vector2 m_ScrollBarPosition;
-		Vector2 m_LastMousePos;
+		ScrollBar m_ScrollBar;
 	};
 }
 

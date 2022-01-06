@@ -21,9 +21,9 @@ namespace Gui {
 		DrawString();
 	}
 
-	void Button::SetClickCallback(void(*callback)(Button* button, bool ispressed))
+	void Button::SetClickCallback(std::function<void(Button* button, bool isPressed)> clickCallback)
 	{
-		m_ClickCallback = callback;
+		m_ClickCallback = clickCallback;
 	}
 
 	void Button::DrawBox()

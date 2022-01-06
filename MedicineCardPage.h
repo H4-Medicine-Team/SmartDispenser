@@ -6,12 +6,17 @@ namespace Page {
 	class MedicineCardPage : public Gui::Page {
 	protected:
 		void Start() override {
+
+			Gui::ScrollBarStyle scrollBarStyle = {
+				GRAY,
+				RED
+			};
+
 			Gui::ScrollViewStyle scrollStyle = {
 				{128, 128, 128, 255},
 				50,
 				10,
-				{35, 50},
-				RED
+				scrollBarStyle
 			};
 
 			Gui::ButtonStyle bStyle = {
@@ -20,7 +25,7 @@ namespace Page {
 				20
 			};
 
-			Gui::ScrollView* sc = new Gui::ScrollView({ 50, 25 }, { 700, 400 }, scrollStyle);
+			Gui::ScrollView* sc = new Gui::ScrollView({ 50, 25 }, { 700, 400 }, {25, 40}, scrollStyle);
 
 			for (int i = 0; i < 10; i++)
 			{
