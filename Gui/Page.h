@@ -1,5 +1,6 @@
 #pragma once
 #include "Gui.h"
+#include <Raylib.h>
 #include <vector>
 
 namespace Gui {
@@ -8,15 +9,16 @@ namespace Gui {
 	public:
 		Page();
 		~Page();
+
 	protected:
 		// Adds a gui element to the page
 		void Add(Gui* guiBlock);
 
-		// This method is called when the page is being set
-		virtual void Start() = 0;
+		// Set background color
+		inline void SetBackgroundColor(Color color) { m_BackgroundColor = color; }
 
-		// is called when another page is being set as the current, and this one has been the current
-		virtual void Unload();
+		// Get background color
+		inline const Color& GetBackgroundColor() { return m_BackgroundColor; }
 	private:
 		// This method is called each frame, and updates all the gui blocks in the page
 		void Update();
@@ -26,6 +28,7 @@ namespace Gui {
 		friend class PageHandler;
 	private:
 		std::vector<Gui*> m_GuiBlocks;
+		Color m_BackgroundColor = WHITE;
 
 	};
 }

@@ -25,22 +25,22 @@ namespace Gui {
 		void SetIsVisible(bool visible) { m_IsVisible = visible; }
 
 		// Set the gui elements position: top-left
-		void SetPos(const Vector2& pos) { m_Pos = pos; }
+		virtual void SetPos(const Vector2& pos) { m_Pos = pos; }
 
 		// Set the gui elements position: top-left
-		void SetPos(float x, float y) { m_Pos = { x, y }; }
+		virtual void SetPos(float x, float y) { m_Pos = { x, y }; }
 
 		// Set the gui elements size
-		void SetSize(const Vector2& pos) { m_Size = pos; }
+		virtual void SetSize(const Vector2& pos) { m_Size = pos; }
 
 		// Set the gui elements size
-		void SetSize(float w, float h) { m_Size = { w, h }; }
+		virtual void SetSize(float w, float h) { m_Size = { w, h }; }
 
 		// Adds position to the current for the element: top-left
-		void Translate(const Vector2& pos) { m_Pos.x += pos.x; m_Pos.y += pos.y; }
+		virtual void Translate(const Vector2& pos) { m_Pos.x += pos.x; m_Pos.y += pos.y; }
 
 		// Adds position to the current for the element: top-left
-		void Translate(float x, float y) { m_Pos.x += x; m_Pos.y += y; }
+		virtual void Translate(float x, float y) { m_Pos.x += x; m_Pos.y += y; }
 
 	public:
 		// Is called each frame and updates the gui element

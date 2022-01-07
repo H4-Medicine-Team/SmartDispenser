@@ -1,4 +1,5 @@
 #include "ScrollBar.h"
+#include "../Application/Input.h"
 
 namespace Gui {
 	ScrollBar::ScrollBar(const Vector2& position, const Vector2& size, const Vector2& barSize, const Vector2& scrollBarPosition, const ScrollBarStyle& style)
@@ -14,7 +15,7 @@ namespace Gui {
 
 	void ScrollBar::Update()
 	{
-		const Vector2 mousePos = GetMousePosition();
+		const Vector2& mousePos = Application::Input::Get().GetTPosition();
 		const Vector2& pos = GetPos();
 		const Vector2& size = GetSize();
 

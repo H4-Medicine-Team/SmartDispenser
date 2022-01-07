@@ -15,14 +15,6 @@ namespace Gui {
 		m_GuiBlocks.push_back(guiBlock);
 	}
 
-	void Page::Unload()
-	{
-		for (int i = 0; i < m_GuiBlocks.size(); i++)
-			delete m_GuiBlocks[i];
-
-		m_GuiBlocks.resize(0);
-	}
-
 	void Page::Update()
 	{
 		for (int i = 0; i < m_GuiBlocks.size(); i++)

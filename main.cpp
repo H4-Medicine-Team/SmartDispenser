@@ -1,6 +1,8 @@
 #include "Raylib.h"
-#include "MainPage.h"
-#include "MedicineCardPage.h"
+#include "Application/Input.h"
+#include "Gui/PageHandler.h"
+
+#include "Page/MainPage.h"
 
 #include <iostream>
 
@@ -11,21 +13,15 @@ int main(void)
     // Create "window"
     InitWindow(800, 480, "Smd");
 
-    // Enable gestures
-    SetGesturesEnabled(GESTURE_TAP);
- 
-    // Add pages
-    Gui::PageHandler::Get().Add(new Page::MainPage(), "main");
-    Gui::PageHandler::Get().Add(new Page::MedicineCardPage(), "medicinecard");
-
     // Set current page
-    Gui::PageHandler::Get().SetPage("medicinecard");
+    Gui::PageHandler::Get().Load<Page::MainPage>();
 
     // Update & draw loop
     while (!WindowShouldClose())
     {
+        Application::Input::Get().Update();
+
         BeginDrawing();
-        ClearBackground({ 255, 255, 255, 255 });
         Gui::PageHandler::Get().Loop();
         EndDrawing();
     }
