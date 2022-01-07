@@ -14,7 +14,6 @@ namespace Page {
             Gui::PageHandler::Get().Load<MedicineCardPage>();
     }
 
-
     MainPage::MainPage() {
 
         Vector2 buttonSize = { 700, 400 };
