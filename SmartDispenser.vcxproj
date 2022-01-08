@@ -98,6 +98,8 @@
     <ClCompile Include="vendor\Sqlite3\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataAccess\IMedicineCardAccess.h" />
+    <ClInclude Include="Dto\MedicineCardDto.h" />
     <ClInclude Include="Gui\Button.h" />
     <ClInclude Include="Gui\Gui.h" />
     <ClInclude Include="Application\Input.h" />

@@ -53,6 +53,15 @@ namespace Gui {
 		SetSize(size.x, size.y);
 	}
 
+	void MedicineButton::SetData(const Dto::MedicineDto& data)
+	{
+		m_DrugNameText.SetText(data.name);
+		m_TimeText.SetText(TmToString(data.time));
+		m_AmountText.SetText(std::to_string(data.amount));
+
+		SetChildrenPos();
+	}
+
 	void MedicineButton::SetClickHandler(const std::function<void(MedicineButton* btn, const Vector2& mousePos, bool isPressed)>& clickHandler)
 	{
 		m_ClickCallback = clickHandler;
@@ -77,6 +86,11 @@ namespace Gui {
 			return;
 
 		m_ClickCallback(this, mousePos, isPressed);
+	}
+
+	std::string MedicineButton::TmToString(const tm& tm)
+	{
+		return std::to_string(tm.tm_hour) + ":" + std::to_string(tm.tm_min);
 	}
 
 	void MedicineButton::Update()

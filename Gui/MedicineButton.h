@@ -2,6 +2,7 @@
 #include "Gui.h"
 #include "Rectangle.h"
 #include "Text.h"
+#include "../Dto/MedicineCardDto.h"
 
 namespace Gui {
 	class MedicineButton :
@@ -20,12 +21,17 @@ namespace Gui {
 
 		void SetSize(float x, float y) override;
 		void SetSize(const Vector2& size) override;
+		
+		void SetData(const Dto::MedicineDto& data);
 
 		void SetClickHandler(const std::function<void(MedicineButton* btn, const Vector2& mousePos, bool isPressed)>& clickHandler);
+
 
 	private:
 		void SetChildrenPos();
 		void RectangleOnClick(Rectangle* btn, const Vector2& mousePos, bool isPressed);
+
+		std::string TmToString(const tm& tm);
 	private:
 		Rectangle m_Rectangle;
 		Text m_DrugNameText;

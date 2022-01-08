@@ -1,16 +1,19 @@
 #include "LocalDb.h"
 
+#include <iostream>
+#include <time.h>
+#include <iomanip>
+
 namespace DataAccess {
 
 	LocalDb::LocalDb()
-		: m_DbName("Medicine.db") 
+		: m_DbName("Medicine.db"),
+		m_TableName("MedicineCard")
 	{
 		if (!Open())
 			throw "Could not create db or create it";
 
 		CreateTables();
-
-		InsertMedicineCard("Johgn", time(NULL), 12);
 	}
 
 	LocalDb::~LocalDb()
@@ -18,11 +21,60 @@ namespace DataAccess {
 		Close();
 	}
 
+	bool LocalDb::InsertMedicine(const Dto::MedicineDto& medicine)
+	{
+		char* sql = new char[200];
+
+		sprintf(sql, "INSERT INTO '%s' ('Name', 'Time', 'Amount') VALUES ('%s', '%s', '%d');",
+			m_TableName.c_str(), medicine.name.c_str(), TimeToString(&medicine.time).c_str(), medicine.amount);
+
+		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, 0);
+
+		delete sql;
+
+		if (r != 0)
+			return false;
+
+		return true;
+	}
+
+	std::vector<Dto::MedicineDto>* LocalDb::GetMedicineCard()
+	{
+		std::vector<Dto::MedicineDto>* list = new std::vector<Dto::MedicineDto>();
+
+		char* sql = new char[200];
+		sprintf(sql, "SELECT * FROM '%s';", m_TableName.c_str());
+
+		sqlite3_stmt* stmt;
+		int rc = sqlite3_prepare_v2(m_DbHandle, sql, -1, &stmt, NULL);
+		if (rc != 0)
+			throw "Could not retrieve medicinecard";
+
+		Dto::MedicineDto dto;
+
+		while ((rc = sqlite3_step(stmt)) == SQLITE_ROW)
+		{
+			dto.id = sqlite3_column_int(stmt, 0);
+			dto.name = std::string((char*)sqlite3_column_text(stmt, 1));
+
+			dto.time = StringToTime(std::string((char*)sqlite3_column_text(stmt, 2)));
+			dto.amount = sqlite3_column_int(stmt, 3);
+
+			list->push_back(dto);
+		}
+
+		sqlite3_finalize(stmt);
+
+		delete sql;
+
+		return list;
+	}
+
 	bool LocalDb::Open()
 	{
 		int s = sqlite3_open(m_DbName.c_str(), &m_DbHandle);
 
-		if (!s)
+		if (s != 0)
 			return false;
 
 		return true;
@@ -35,32 +87,37 @@ namespace DataAccess {
 
 	bool LocalDb::CreateTables()
 	{
-		const char* sql = "CREATE TABLE IF NOT EXISTS MedicineCard (" \
-			"Id INT PRIMARY KEY NOT NULL," \
+		char* sql = new char[300];
+
+		sprintf(sql, "CREATE TABLE IF NOT EXISTS %s (" \
+			"Id INTEGER PRIMARY KEY," \
 			"Name TEXT NOT NULL," \
 			"Time DATETIME NOT NULL," \
 			"Amount int NOT NULL"
-			");";
+			");", m_TableName.c_str());
 
 		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, 0);
 
-		if (!r)
+		delete sql;
+
+		if (r != 0)
 			return false;
 
 		return true;
 	}
 
-	bool LocalDb::InsertMedicineCard(const std::string& name, const time_t& time, int amount)
+	std::string LocalDb::TimeToString(const tm* time)
 	{
-		char* error;
+		auto stringTime = std::string(asctime(time));
+		stringTime.pop_back();
+		return stringTime;
+	}
 
-		char* sql = new char[200];
-		sprintf(sql, "INSERT INTO 'MedicineCard' ('Id', 'Name', 'Time', 'Amount') VALUES ('%d', '%s', '%s', '%d');",
-			0, name, std::to_string(time), amount);
+	tm LocalDb::StringToTime(const std::string& time)
+	{
+		tm tm{};
+		strptime(time.c_str(), "%c", &tm);
 
-
-		sqlite3_exec(m_DbHandle, sql, 0, 0, &error);
-
-		return true;
+		return tm;
 	}
 }

@@ -15,6 +15,12 @@ namespace Gui {
 	{
 	}
 
+	void Text::SetText(const std::string& text)
+	{
+		m_Text = text;
+		SetSize(GetTextSize());
+	}
+
 	const Vector2 Text::GetTextSize()
 	{
 		return { (float)MeasureText(m_Text.c_str(), (float)m_CurrentStyle->fontSize), (float)m_CurrentStyle->fontSize };
