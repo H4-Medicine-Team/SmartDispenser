@@ -2,9 +2,9 @@
 #include "../Application/Input.h"
 
 namespace Gui {
-	ScrollBar::ScrollBar(const Vector2& position, const Vector2& size, const Vector2& barSize, const Vector2& scrollBarPosition, const ScrollBarStyle& style)
+	ScrollBar::ScrollBar(const Vector2& position, const Vector2& size, const Vector2& barSize, const Vector2& scrollBarPosition)
 		: Gui(position, size),
-		m_Style(style),
+		m_Style({}),
 		m_ScrollBarSize(barSize),
 		m_ScrollBarPosition(scrollBarPosition)
 	{}

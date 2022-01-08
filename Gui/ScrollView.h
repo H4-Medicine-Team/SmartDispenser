@@ -6,16 +6,17 @@
 
 namespace Gui {
 	struct ScrollViewStyle {
-		Color backgrondColor;
-		int minHeight;
-		int yMargin;
-		ScrollBarStyle barStyle;
+		Color backgrondColor = WHITE;
+		int minHeight = 50;
+		int yMargin = 2;
+		int xMargin = 2;
+		ScrollBarStyle barStyle{};
 	};
 
 	class ScrollView : public Gui
 	{
 	public:
-		ScrollView(const Vector2& position, const Vector2& size, const Vector2& barSize, const ScrollViewStyle& style);
+		ScrollView(const Vector2& position, const Vector2& size, const Vector2& barSize);
 		~ScrollView();
 	public:
 		// Adds a gui element to the list in the scroll view

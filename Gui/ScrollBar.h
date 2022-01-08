@@ -6,14 +6,14 @@
 
 namespace Gui {
 	struct ScrollBarStyle {
-		Color scrollBarBackgroundColor;
-		Color scrollBarColor;
+		Color scrollBarBackgroundColor = GRAY;
+		Color scrollBarColor = RED;
 	};
 
 	class ScrollBar : public Gui
 	{
 	public:
-		ScrollBar(const Vector2& position, const Vector2& size, const Vector2& barSize, const Vector2& scrollBarPosition, const ScrollBarStyle& style);
+		ScrollBar(const Vector2& position, const Vector2& size, const Vector2& barSize, const Vector2& scrollBarPosition);
 		~ScrollBar();
 
 	public:

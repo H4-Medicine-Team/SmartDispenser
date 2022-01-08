@@ -19,6 +19,11 @@ namespace Gui {
 		virtual void Update() override;
 		virtual void Draw() override;
 
+		void SetDefaultStyle(const TextStyle& style) { m_DefaultStyle = style; }
+		void SetHoverStyle(const TextStyle& style) { m_HoverStyle = style; }
+		const TextStyle& GetDefaultStyle() { return m_DefaultStyle; }
+		const TextStyle& GetHoverStyle() { return m_HoverStyle; }
+
 	private:
 		const Vector2 GetTextSize();
 

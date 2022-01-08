@@ -12,6 +12,10 @@ namespace Gui {
 		m_ClickCallback(0),
 		Gui::Gui(position, size)
 	{
+		TextStyle tStyle{};
+		tStyle.color = WHITE;
+
+		m_Text.SetDefaultStyle(tStyle);
 		SetChildrenPos();
 		m_Rectangle.SetClickHandler(std::bind(&Button::RectangleOnClick, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 	}

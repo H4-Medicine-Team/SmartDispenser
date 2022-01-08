@@ -21,7 +21,11 @@ namespace Gui {
 	public:
 		void SetClickHandler(const std::function<void(Rectangle* object, const Vector2& mousePos, bool isPressed)>& callback);
 
-	public:
+		void SetDefaultStyle(const RectangleStyle& style) { m_DefaultStyle = style; }
+		void SetHoverStyle(const RectangleStyle& style) { m_HoverStyle = style; }
+		const RectangleStyle& GetDefaultStyle() { return m_DefaultStyle; }
+		const RectangleStyle& GetHoverStyle() { return m_HoverStyle; }
+
 		virtual void Update() override;
 		virtual void Draw() override;
 

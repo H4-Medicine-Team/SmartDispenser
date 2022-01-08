@@ -80,11 +80,13 @@
     <IncludePath>$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <IncludePath>$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="Gui\Button.cpp" />
     <ClCompile Include="Application\Input.cpp" />
+    <ClCompile Include="Gui\MedicineButton.cpp" />
+    <ClCompile Include="DataAccess\LocalDb.cpp" />
     <ClCompile Include="Page\MainPage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Gui\Page.cpp" />
@@ -93,11 +95,14 @@
     <ClCompile Include="Page\MedicineCardPage.cpp" />
     <ClCompile Include="Gui\Rectangle.cpp" />
     <ClCompile Include="Gui\Text.cpp" />
+    <ClCompile Include="vendor\Sqlite3\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gui\Button.h" />
     <ClInclude Include="Gui\Gui.h" />
     <ClInclude Include="Application\Input.h" />
+    <ClInclude Include="Gui\MedicineButton.h" />
+    <ClInclude Include="DataAccess\LocalDb.h" />
     <ClInclude Include="Page\MedicineCardPage.h" />
     <ClInclude Include="Gui\Page.h" />
     <ClInclude Include="Gui\PageHandler.h" />
@@ -107,6 +112,8 @@
     <ClInclude Include="Gui\Rectangle.h" />
     <ClInclude Include="Gui\Text.h" />
     <ClInclude Include="vendor\Raylib\Raylib.h" />
+    <ClInclude Include="vendor\Sqlite3\sqlite3.h" />
+    <ClInclude Include="vendor\Sqlite3\sqlite3ext.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Link>

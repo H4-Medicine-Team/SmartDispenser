@@ -1,6 +1,7 @@
 #include "MedicineCardPage.h"
 
 #include "../Gui/Button.h"
+#include "../Gui/MedicineButton.h"
 #include "../Gui/ScrollView.h"
 #include "../Gui/PageHandler.h"
 
@@ -14,29 +15,14 @@ namespace Page {
 	}
 
 	MedicineCardPage::MedicineCardPage() {
-		// styles
-		Gui::ScrollBarStyle scrollBarStyle = {
-			GRAY,
-			RED
-		};
-
-		Gui::ScrollViewStyle scrollStyle = {
-			{128, 128, 128, 255},
-			50,
-			10,
-			scrollBarStyle
-		};
-
-
-
-		Gui::Button* backBtn = new Gui::Button("<--", { 10, 10 }, { 40, 25 });
+		Gui::Button* backBtn = new Gui::Button("Back", { 10, 10 }, { 50, 35 });
 		backBtn->SetClickHandler(backCallback);
 
-		Gui::ScrollView* scrollView = new Gui::ScrollView({ 50, 50 }, { 700, 380 }, { 25, 40 }, scrollStyle);
+		Gui::ScrollView* scrollView = new Gui::ScrollView({ 0, 50 }, { 800, 380 }, { 25, 40 });
 
 		for (int i = 0; i < 10; i++)
 		{
-			scrollView->Add(new Gui::Button(std::string("Hej ") + std::to_string(i), { 0, 0 }, { 0, 0 }));
+			scrollView->Add(new Gui::MedicineButton({}, {}));
 		}
 
 		Add(scrollView);

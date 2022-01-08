@@ -4,15 +4,14 @@
 #include <functional>
 
 namespace Gui {
-	ScrollView::ScrollView(const Vector2& position, const Vector2& size, const Vector2& barSize, const ScrollViewStyle& style)
-		: m_Style(style),
+	ScrollView::ScrollView(const Vector2& position, const Vector2& size, const Vector2& barSize)
+		: m_Style({}),
 		m_Blocks(0),
 		m_ScrollBar(
 			{position.x + size.x - barSize.x, position.y},
 			{barSize.x, size.y},
 			barSize,
-			{position.x + size.x - barSize.x, position.y},
-			style.barStyle
+			{position.x + size.x - barSize.x, position.y}
 		),
 		Gui(position, size) 
 	{
