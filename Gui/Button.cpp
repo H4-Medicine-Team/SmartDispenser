@@ -49,6 +49,31 @@ namespace Gui {
 		SetSize(size.x, size.y);
 	}
 
+	void Button::SetText(const std::string& text)
+	{
+		m_Text.SetText(text);
+		SetChildrenPos();
+	}
+
+	const std::string& Button::GetText()
+	{
+		return m_Text.GetText();
+	}
+
+	void Button::SetDefaultStyle(const ButtonStyle& style)
+	{
+		m_Text.SetDefaultStyle(style.textStyle);
+		m_Rectangle.SetDefaultStyle(style.rectangleStyle);
+		SetChildrenPos();
+	}
+
+	void Button::SetHoverStyle(const ButtonStyle& style)
+	{
+		m_Text.SetHoverStyle(style.textStyle);
+		m_Rectangle.SetHoverStyle(style.rectangleStyle);
+		SetChildrenPos();
+	}
+
 	void Button::SetClickHandler(const std::function<void(Button* btn, const Vector2& mousePos, bool isPressed)>& clickHandler)
 	{
 		m_ClickCallback = clickHandler;

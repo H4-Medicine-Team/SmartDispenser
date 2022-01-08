@@ -38,6 +38,15 @@ namespace Gui {
 		m_ScrollBar.SetIsVisible(shouldShowBar);		
 	}
 
+	int ScrollView::GetElementIndex(Gui* block)
+	{
+		for (int i = 0; i < m_Blocks.size(); i++)
+			if (m_Blocks[i] == block)
+				return i;
+
+		return -1;
+	}
+
 	void ScrollView::Update()
 	{
 		if (m_ScrollBar.IsVisible())

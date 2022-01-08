@@ -25,6 +25,7 @@ namespace Gui {
 		const TextStyle& GetHoverStyle() { return m_HoverStyle; }
 
 		void SetText(const std::string& text);
+		const std::string& GetText() { return m_Text; }
 
 	private:
 		const Vector2 GetTextSize();

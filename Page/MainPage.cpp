@@ -5,7 +5,7 @@
 #include "../Gui/Rectangle.h"
 #include "../Gui/Text.h"
 
-#include <iostream>
+#include "../Gui/Keyboard.h"
 
 namespace Page {
 

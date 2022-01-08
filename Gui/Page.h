@@ -2,6 +2,7 @@
 #include "Gui.h"
 #include <Raylib.h>
 #include <vector>
+#include "Keyboard.h"
 
 namespace Gui {
 	class Page
@@ -19,6 +20,16 @@ namespace Gui {
 
 		// Get background color
 		inline const Color& GetBackgroundColor() { return m_BackgroundColor; }
+
+		inline Keyboard& GetKeyboard() { return m_Keyboard; }
+
+		inline void Clear() {
+			for (int i = 0; i < m_GuiBlocks.size(); i++)
+				delete m_GuiBlocks[i];
+
+			m_GuiBlocks.clear();
+		}
+
 	private:
 		// This method is called each frame, and updates all the gui blocks in the page
 		void Update();
@@ -29,6 +40,7 @@ namespace Gui {
 	private:
 		std::vector<Gui*> m_GuiBlocks;
 		Color m_BackgroundColor = WHITE;
+		Keyboard m_Keyboard;
 
 	};
 }

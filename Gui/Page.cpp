@@ -2,7 +2,10 @@
 #include "Raylib.h"
 
 namespace Gui {
-	Page::Page() : m_GuiBlocks(0) {}
+	Page::Page() 
+		: m_GuiBlocks(0),
+		m_Keyboard({ 0, 200 }, { 800, 280 })
+	{}
 
 	Page::~Page()
 	{
@@ -17,6 +20,12 @@ namespace Gui {
 
 	void Page::Update()
 	{
+		if (m_Keyboard.IsVisible())
+		{
+			m_Keyboard.Update();
+			return;
+		}
+
 		for (int i = 0; i < m_GuiBlocks.size(); i++)
 		{
 			if (!m_GuiBlocks[i]->m_IsVisible)
@@ -28,6 +37,9 @@ namespace Gui {
 
 	void Page::Draw()
 	{
+		if (m_Keyboard.IsVisible())
+			m_Keyboard.Draw();
+
 		for (int i = 0; i < m_GuiBlocks.size(); i++)
 		{
 			if (!m_GuiBlocks[i]->m_IsVisible)

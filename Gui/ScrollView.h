@@ -21,6 +21,8 @@ namespace Gui {
 	public:
 		// Adds a gui element to the list in the scroll view
 		void Add(Gui* block);
+		
+		int GetElementIndex(Gui* block);
 
 	protected:
 		// Updates the current scrollview and all its children

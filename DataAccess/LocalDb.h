@@ -2,7 +2,6 @@
 
 #include <string>
 #include <sqlite3.h>
-#include <functional>
 #include <ctime>
 
 #include "IMedicineCardAccess.h"
@@ -22,24 +21,20 @@ namespace DataAccess {
 		~LocalDb();
 
 	public:
-		std::vector<Dto::MedicineDto>* GetMedicineCard() override;
-		virtual bool InsertMedicine(const Dto::MedicineDto& medicine) override;
+		virtual std::vector<Dto::MedicineDto>* GetMedicineCard() override;
+		virtual void InsertMedicine(const Dto::MedicineDto& medicine) override;
+		virtual void RemoveMedicine(const Dto::MedicineDto& medicine) override;
+		virtual void EditMedicine(const Dto::MedicineDto& medicine) override;
+
+	protected:
+		virtual void Open() override;
+		virtual void Close() override;
 
 	private:
 		/*
-		* Open a connection to the local database
-		*/
-		bool Open();
-
-		/*
-		* Close the connection to the database
-		*/
-		void Close();
-
-		/*
 		* Creates the tables if they exists
 		*/
-		bool CreateTables();
+		void CreateTables();
 
 		/*
 		* Converts a time to the full date time specification.

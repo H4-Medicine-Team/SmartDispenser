@@ -1,8 +1,6 @@
 #include "LocalDb.h"
 
-#include <iostream>
 #include <time.h>
-#include <iomanip>
 
 namespace DataAccess {
 
@@ -10,9 +8,7 @@ namespace DataAccess {
 		: m_DbName("Medicine.db"),
 		m_TableName("MedicineCard")
 	{
-		if (!Open())
-			throw "Could not create db or create it";
-
+		Open();
 		CreateTables();
 	}
 
@@ -21,7 +17,7 @@ namespace DataAccess {
 		Close();
 	}
 
-	bool LocalDb::InsertMedicine(const Dto::MedicineDto& medicine)
+	void LocalDb::InsertMedicine(const Dto::MedicineDto& medicine)
 	{
 		char* sql = new char[200];
 
@@ -33,9 +29,42 @@ namespace DataAccess {
 		delete sql;
 
 		if (r != 0)
-			return false;
+			throw "Cannot insert into medicinecard";
+	}
 
-		return true;
+	void LocalDb::RemoveMedicine(const Dto::MedicineDto& medicine)
+	{
+		char* errorMsg;
+
+		char* sql = new char[300];
+		sprintf(sql, "DELETE FROM %s (" \
+			"WHERE 'Id' = %i;",
+			m_TableName.c_str(), medicine.id);
+
+		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, &errorMsg);
+
+		delete sql;
+
+		if (r != 0)
+			throw (std::string("Cannot remove data: ") + errorMsg).c_str();
+	}
+
+	void LocalDb::EditMedicine(const Dto::MedicineDto& medicine)
+	{
+		char* errorMsg;
+
+		char* sql = new char[300];
+		sprintf(sql, "UPDATE %s " \
+			"SET 'Name' = %s, 'Time' = %s, 'Amount' = %i " \
+			"WHERE 'Id' = %i;"
+			, m_TableName.c_str(), medicine.name, TimeToString(&medicine.time).c_str(), medicine.amount, medicine.id);
+
+		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, &errorMsg);
+
+		delete sql;
+
+		if (r != 0)
+			throw (std::string("Cannot edit table: ") + errorMsg).c_str();
 	}
 
 	std::vector<Dto::MedicineDto>* LocalDb::GetMedicineCard()
@@ -70,14 +99,12 @@ namespace DataAccess {
 		return list;
 	}
 
-	bool LocalDb::Open()
+	void LocalDb::Open()
 	{
 		int s = sqlite3_open(m_DbName.c_str(), &m_DbHandle);
 
 		if (s != 0)
-			return false;
-
-		return true;
+			throw "Cannot open database";
 	}
 
 	void LocalDb::Close()
@@ -85,10 +112,11 @@ namespace DataAccess {
 		sqlite3_close(m_DbHandle);
 	}
 
-	bool LocalDb::CreateTables()
+	void LocalDb::CreateTables()
 	{
-		char* sql = new char[300];
+		char* errorMsg;
 
+		char* sql = new char[300];
 		sprintf(sql, "CREATE TABLE IF NOT EXISTS %s (" \
 			"Id INTEGER PRIMARY KEY," \
 			"Name TEXT NOT NULL," \
@@ -96,14 +124,12 @@ namespace DataAccess {
 			"Amount int NOT NULL"
 			");", m_TableName.c_str());
 
-		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, 0);
+		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, &errorMsg);
 
 		delete sql;
 
 		if (r != 0)
-			return false;
-
-		return true;
+			throw (std::string("Cannot create tables: ") + errorMsg).c_str();
 	}
 
 	std::string LocalDb::TimeToString(const tm* time)

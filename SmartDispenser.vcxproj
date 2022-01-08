@@ -83,10 +83,12 @@
     <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Page\EditMedicinePage.cpp" />
     <ClCompile Include="Gui\Button.cpp" />
     <ClCompile Include="Application\Input.cpp" />
     <ClCompile Include="Gui\MedicineButton.cpp" />
     <ClCompile Include="DataAccess\LocalDb.cpp" />
+    <ClCompile Include="Gui\Keyboard.cpp" />
     <ClCompile Include="Page\MainPage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Gui\Page.cpp" />
@@ -100,11 +102,13 @@
   <ItemGroup>
     <ClInclude Include="DataAccess\IMedicineCardAccess.h" />
     <ClInclude Include="Dto\MedicineCardDto.h" />
+    <ClInclude Include="Page\EditMedicinePage.h" />
     <ClInclude Include="Gui\Button.h" />
     <ClInclude Include="Gui\Gui.h" />
     <ClInclude Include="Application\Input.h" />
     <ClInclude Include="Gui\MedicineButton.h" />
     <ClInclude Include="DataAccess\LocalDb.h" />
+    <ClInclude Include="Gui\Keyboard.h" />
     <ClInclude Include="Page\MedicineCardPage.h" />
     <ClInclude Include="Gui\Page.h" />
     <ClInclude Include="Gui\PageHandler.h" />

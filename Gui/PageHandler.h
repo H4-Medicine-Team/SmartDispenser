@@ -22,8 +22,8 @@ namespace Gui {
 
 	public:
 		// Load a page, by giving it a page::T
-		template <typename T>
-		void Load();
+		template <typename T, typename ...Args>
+		void Load(Args && ...args);
 
 		// This method calls both update and draw
 		inline void Loop() {
@@ -37,8 +37,8 @@ namespace Gui {
 		std::shared_ptr<Page> m_CurrentPage;
 	};
 
-	template<typename T>
-	inline void PageHandler::Load() {
-		m_CurrentPage = std::make_shared<T>();
+	template<typename T, typename ...Args>
+	inline void PageHandler::Load(Args && ...args) {
+		m_CurrentPage = std::make_shared<T>(std::forward<Args>(args)...);
 	}
 }
