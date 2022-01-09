@@ -3,6 +3,9 @@
 #include <time.h>
 
 namespace Dto {
+	/*
+	* Represents the database overview.
+	*/
 	struct MedicineDto {
 		int id;
 		std::string name;

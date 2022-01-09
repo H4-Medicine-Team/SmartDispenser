@@ -17,26 +17,31 @@ namespace Gui {
 		~ScrollBar();
 
 	public:
-		// Sets the callback for the scrollbar when the position has been changed, the input parameter is the scroll bars progress in percentage
+		/*
+		* Sets the callback for the scrollbar when the position has been changed, the input parameter is the scroll bars progress in percentage
+		*/
 		void SetScrollCallback(const std::function<void(float percentage)>& scrollCallback);
 
 	protected:
-		// Updates the gui elements
 		virtual void Update() override;
-
-		// Draws all the gui elements
 		virtual void Draw() override;
 
 		friend class ScrollView;
 
 	private:
-		// Updates the scroll bars position
+		/*
+		* Updates the scroll bars position
+		*/
 		void UpdateScrollBarPosition(const Vector2& mPos, const Vector2& pos, const Vector2& size);
 
-		// Returns whether the mouse is colliding with scrollbar
+		/*
+		* Returns whether the mouse is colliding with scrollbar
+		*/
 		bool IsMouseColliding(const Vector2& mPos, const Vector2& pos, const Vector2& size);
 
-		// Gets the current scrolled percentage
+		/*
+		* Gets the current scrolled percentage
+		*/
 		float GetCurrentScrolledPercent();
 
 	private:

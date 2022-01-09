@@ -12,8 +12,15 @@ namespace Page {
 		~MedicineCardPage();
 
 	private:
+		/*
+		* Called when medicine button is clicked
+		*/
 		void OnMedicineClick(Gui::MedicineButton* btn, const Vector2& mousePos, bool isPressed);
 
+		/*
+		* Retrieves the medicine data from the database
+		* and sets up the gui
+		*/
 		void GetMedicineData();
 
 	private:

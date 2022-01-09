@@ -8,7 +8,10 @@ namespace Gui {
 	class PageHandler
 	{
 	public:
-		// Get singleton instance of pagehandler
+
+		/*
+		* Get singleton instance of pagehandler
+		*/
 		static PageHandler& Get() { static PageHandler instance; return instance; }
 
 		PageHandler(PageHandler const&) = delete;
@@ -21,11 +24,16 @@ namespace Gui {
 		}
 
 	public:
-		// Load a page, by giving it a page::T
+		/*
+		* Load a page, by giving it a page::T
+		* args -> can be forwarded to the page.
+		*/
 		template <typename T, typename ...Args>
 		void Load(Args && ...args);
 
-		// This method calls both update and draw
+		/*
+		* This method calls both update and draw
+		*/
 		inline void Loop() {
 			m_CurrentPage->Update();
 
