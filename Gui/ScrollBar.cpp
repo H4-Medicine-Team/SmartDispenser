@@ -41,7 +41,7 @@ namespace Gui {
 
 	float ScrollBar::GetCurrentScrolledPercent()
 	{
-		float fullHeight = GetSize().y;
+		float fullHeight = GetSize().y - m_ScrollBarSize.y;
 		float currentHeight = m_ScrollBarPosition.y - GetPos().y;
 
 		return currentHeight / fullHeight;

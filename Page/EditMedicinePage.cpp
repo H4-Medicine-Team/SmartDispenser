@@ -1,6 +1,7 @@
 #include "EditMedicinePage.h"
 #include "../Gui/PageHandler.h"
 #include "MedicineCardPage.h"
+#include <sstream>
 
 namespace Page {
 
@@ -15,7 +16,8 @@ namespace Page {
 		: m_Database(),
 		m_NameButton(NULL),
 		m_TimeButton(NULL),
-		m_AmountButton(NULL)
+		m_AmountButton(NULL),
+		m_OriginalMedicine(medicine)
 	{
 		Gui::ButtonStyle style{};
 		style.textStyle.fontSize = 25;
@@ -39,10 +41,17 @@ namespace Page {
 		m_AmountButton->SetClickHandler(std::bind(&EditMedicinePage::AmountClickCallback, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 		m_AmountButton->SetDefaultStyle(style);
 
+		Gui::Button* updateBtn = new Gui::Button("Opdater", { 250, 400 }, { 100, 50 });
+		updateBtn->SetClickHandler(std::bind(&EditMedicinePage::UpdateClickCallback, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
+
+		Gui::Button* deleteBtn = new Gui::Button("Slet", { 500, 400 }, { 100, 50 });
+
 		Add(m_NameButton);
 		Add(m_TimeButton);
 		Add(m_AmountButton);
 		Add(backBtn);
+		Add(updateBtn);
+		Add(deleteBtn);
 	}
 
 	EditMedicinePage::~EditMedicinePage()
@@ -67,6 +76,19 @@ namespace Page {
 	std::string EditMedicinePage::ConvertTimeToString(const tm& tm)
 	{
 		return std::to_string(tm.tm_hour) + ":" + std::to_string(tm.tm_min);
+	}
+
+	std::vector<std::string> EditMedicinePage::SplitString(const std::string& string, char c)
+	{
+		auto vec = std::vector<std::string>();
+		std::istringstream f(string);
+
+		std::string s;
+		while (getline(f, s, ';')) {
+			vec.push_back(s);
+		}
+
+		return vec;
 	}
 
 	void EditMedicinePage::NameClickCallback(Gui::Button* btn, const Vector2& mousePos, bool isPressed)
@@ -97,5 +119,36 @@ namespace Page {
 		GetKeyboard().SetText(btn->GetText());
 		GetKeyboard().SetIsVisible(true);
 		GetKeyboard().SetTextChangedCallback(std::bind(&EditMedicinePage::AmountChangedCallback, this, std::placeholders::_1));
+	}
+
+	void EditMedicinePage::UpdateClickCallback(Gui::Button* btn, const Vector2& mousePos, bool isPressed)
+	{
+		if (isPressed)
+			return;
+
+		m_OriginalMedicine.name = m_NameButton->GetText();
+		m_OriginalMedicine.amount = std::stoi(m_AmountButton->GetText());
+
+		const std::string& time = m_TimeButton->GetText();
+		auto times = SplitString(time, ':');
+		
+		if (times.size() == 2)
+		{
+			m_OriginalMedicine.time.tm_hour = std::stoi(times[0]);
+			m_OriginalMedicine.time.tm_min = std::stoi(times[1]);
+		}
+
+		m_Database.EditMedicine(m_OriginalMedicine);
+		Gui::PageHandler::Get().Load<MedicineCardPage>();
+	}
+
+	void EditMedicinePage::DeleteClickCallback(Gui::Button* btn, const Vector2& mousePos, bool isPressed)
+	{
+		if (isPressed)
+			return;
+
+		m_Database.RemoveMedicine(m_OriginalMedicine);
+
+		Gui::PageHandler::Get().Load<MedicineCardPage>();
 	}
 }

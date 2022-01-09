@@ -55,9 +55,9 @@ namespace DataAccess {
 
 		char* sql = new char[300];
 		sprintf(sql, "UPDATE %s " \
-			"SET 'Name' = %s, 'Time' = %s, 'Amount' = %i " \
-			"WHERE 'Id' = %i;"
-			, m_TableName.c_str(), medicine.name, TimeToString(&medicine.time).c_str(), medicine.amount, medicine.id);
+			"SET Name = '%s', Time = '%s', Amount = '%i' " \
+			"WHERE Id = '%i';"
+			, m_TableName.c_str(), medicine.name.c_str(), TimeToString(&medicine.time).c_str(), medicine.amount, medicine.id);
 
 		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, &errorMsg);
 

@@ -37,9 +37,6 @@ namespace Gui {
 
 	void Page::Draw()
 	{
-		if (m_Keyboard.IsVisible())
-			m_Keyboard.Draw();
-
 		for (int i = 0; i < m_GuiBlocks.size(); i++)
 		{
 			if (!m_GuiBlocks[i]->m_IsVisible)
@@ -47,5 +44,8 @@ namespace Gui {
 
 			m_GuiBlocks[i]->Draw();
 		}
+
+		if (m_Keyboard.IsVisible())
+			m_Keyboard.Draw();
 	}
 }

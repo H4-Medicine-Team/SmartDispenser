@@ -49,7 +49,7 @@ namespace Page {
 		Clear();
 		m_Data = m_Database.GetMedicineCard();
 
-		m_ScrollView = new Gui::ScrollView({ 0, 50 }, { 800, 380 }, { 25, 40 });
+		m_ScrollView = new Gui::ScrollView({ 0, 50 }, { 800, 320 }, { 25, 40 });
 
 		for (int i = 0; i < m_Data->size(); i++)
 		{
@@ -59,7 +59,10 @@ namespace Page {
 			m_ScrollView->Add(btn);
 		}
 
+		Gui::Button* insertBtn = new Gui::Button("Tilføj", { 20, 380 }, { 760, 50 });
+
 		Add(m_ScrollView);
+		Add(insertBtn);
 		Add(backBtn);
 	}
 }

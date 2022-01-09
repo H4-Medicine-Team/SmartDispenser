@@ -4,18 +4,77 @@
   Validating architecture
   Starting remote build
   Compiling sources:
-  MedicineCardPage.cpp
-C:\repos\SmartDispenser\Page\..\Gui\Page.h(27,22): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
-C:\repos\SmartDispenser\Page\..\Gui\Page.h(27,22): warning :    27 |    for (int i = 0; i < m_GuiBlocks.size(); i++)
-C:\repos\SmartDispenser\Page\..\Gui\Page.h(27,22): warning :       |                    ~~^~~~~~~~~~~~~~~~~~~~
-C:\repos\SmartDispenser\Page\..\Gui\Page.h(28,5): warning : deleting object of abstract class type ‘Gui::Gui’ which has non-virtual destructor will cause undefined behavior [-Wdelete-non-virtual-dtor]
-C:\repos\SmartDispenser\Page\..\Gui\Page.h(28,5): warning :    28 |     delete m_GuiBlocks[i];
-C:\repos\SmartDispenser\Page\..\Gui\Page.h(28,5): warning :       |     ^~~~~~~~~~~~~~~~~~~~~
-C:\repos\SmartDispenser\Page\MedicineCardPage.h(22,34): warning : ‘Page::MedicineCardPage::m_Data’ will be initialized after [-Wreorder]
-C:\repos\SmartDispenser\Page\MedicineCardPage.h(20,20): warning : ‘Gui::ScrollView* Page::MedicineCardPage::m_ScrollView’ [-Wreorder]
-C:\repos\SmartDispenser\Page\MedicineCardPage.cpp(17,2): warning : when initialized here [-Wreorder]
-C:\repos\SmartDispenser\Page\MedicineCardPage.cpp(54,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Dto::MedicineDto>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
-C:\repos\SmartDispenser\Page\MedicineCardPage.cpp(54,21): warning :    54 |   for (int i = 0; i < m_Data->size(); i++)
-C:\repos\SmartDispenser\Page\MedicineCardPage.cpp(54,21): warning :       |                   ~~^~~~~~~~~~~~~~~~
+  ScrollView.cpp
+C:\repos\SmartDispenser\Gui\ScrollView.h(50,13): warning : ‘Gui::ScrollView::m_ScrollBar’ will be initialized after [-Wreorder]
+C:\repos\SmartDispenser\Gui\ScrollView.h(50,13): warning :    50 |   ScrollBar m_ScrollBar;
+C:\repos\SmartDispenser\Gui\ScrollView.h(50,13): warning :       |             ^~~~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(16,21): warning : base ‘Gui::Gui’ [-Wreorder]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(16,21): warning :    16 |   Gui(position, size)
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(16,21): warning :       |                     ^
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(7,2): warning : when initialized here [-Wreorder]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(24,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(24,21): warning :    24 |   for (int i = 0; i < m_Blocks.size(); i++)
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(24,21): warning :       |                   ~~^~~~~~~~~~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(25,4): warning : deleting object of abstract class type ‘Gui::Gui’ which has non-virtual destructor will cause undefined behavior [-Wdelete-non-virtual-dtor]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(25,4): warning :    25 |    delete m_Blocks[i];
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(25,4): warning :       |    ^~~~~~~~~~~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(35,65): warning : conversion from ‘int’ to ‘float’ may change value [-Wconversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(35,65): warning :    35 |   block->SetSize(GetSize().x - m_ScrollBar.GetSize().x, m_Style.minHeight);
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(35,65): warning :       |                                                         ~~~~~~~~^~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(43,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(43,21): warning :    43 |   for (int i = 0; i < m_Blocks.size(); i++)
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(43,21): warning :       |                   ~~^~~~~~~~~~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(56,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(56,21): warning :    56 |   for (int i = 0; i < m_Blocks.size(); i++)
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(56,21): warning :       |                   ~~^~~~~~~~~~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,21): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,21): warning :    71 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.backgrondColor);
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,21): warning :       |                 ~~~~^
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,28): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,28): warning :    71 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.backgrondColor);
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,28): warning :       |                        ~~~~^
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,36): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,36): warning :    71 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.backgrondColor);
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,36): warning :       |                               ~~~~~^
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,44): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,44): warning :    71 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.backgrondColor);
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(71,44): warning :       |                                       ~~~~~^
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(76,21): warning : comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<Gui::Gui*>::size_type’ {aka ‘unsigned int’} [-Wsign-compare]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(76,21): warning :    76 |   for (int i = 0; i < m_Blocks.size(); i++)
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(76,21): warning :       |                   ~~^~~~~~~~~~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(101,24): warning : conversion from ‘int’ to ‘float’ may change value [-Wconversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(101,24): warning :   101 |    startPos.y + (index * m_Style.minHeight) + (m_Style.yMargin * index)
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(101,24): warning :       |                 ~~~~~~~^~~~~~~~~~~~~~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(101,64): warning : conversion from ‘int’ to ‘float’ may change value [-Wconversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(101,64): warning :   101 |    startPos.y + (index * m_Style.minHeight) + (m_Style.yMargin * index)
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(101,64): warning :       |                                               ~~~~~~~~~~~~~~~~~^~~~~~~~
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(125,42): warning : conversion from ‘int’ to ‘float’ may change value [-Wconversion]
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(125,42): warning :   125 |   return (itemCount * m_Style.minHeight) + (m_Style.yMargin * itemCount);
+C:\repos\SmartDispenser\Gui\ScrollView.cpp(125,42): warning :       |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ScrollBar.cpp
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,21): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,21): warning :    56 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.scrollBarBackgroundColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,21): warning :       |                 ~~~~^
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,28): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,28): warning :    56 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.scrollBarBackgroundColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,28): warning :       |                        ~~~~^
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,36): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,36): warning :    56 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.scrollBarBackgroundColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,36): warning :       |                               ~~~~~^
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,44): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,44): warning :    56 |   DrawRectangle(pos.x, pos.y, size.x, size.y, m_Style.scrollBarBackgroundColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(56,44): warning :       |                                       ~~~~~^
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,37): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,37): warning :    59 |   DrawRectangle(m_ScrollBarPosition.x, m_ScrollBarPosition.y, m_ScrollBarSize.x, m_ScrollBarSize.y, m_Style.scrollBarColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,37): warning :       |                 ~~~~~~~~~~~~~~~~~~~~^
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,60): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,60): warning :    59 |   DrawRectangle(m_ScrollBarPosition.x, m_ScrollBarPosition.y, m_ScrollBarSize.x, m_ScrollBarSize.y, m_Style.scrollBarColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,60): warning :       |                                        ~~~~~~~~~~~~~~~~~~~~^
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,79): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,79): warning :    59 |   DrawRectangle(m_ScrollBarPosition.x, m_ScrollBarPosition.y, m_ScrollBarSize.x, m_ScrollBarSize.y, m_Style.scrollBarColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,79): warning :       |                                                               ~~~~~~~~~~~~~~~~^
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,98): warning : conversion from ‘float’ to ‘int’ may change value [-Wfloat-conversion]
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,98): warning :    59 |   DrawRectangle(m_ScrollBarPosition.x, m_ScrollBarPosition.y, m_ScrollBarSize.x, m_ScrollBarSize.y, m_Style.scrollBarColor);
+C:\repos\SmartDispenser\Gui\ScrollBar.cpp(59,98): warning :       |                                                                                  ~~~~~~~~~~~~~~~~^
   Linking objects
   SmartDispenser.vcxproj -> C:\repos\SmartDispenser\bin\ARM\Debug\SmartDispenser.out
