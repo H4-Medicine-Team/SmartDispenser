@@ -1,5 +1,7 @@
 #include "Text.h"
 
+#include <unistd.h>
+
 namespace Gui {
 	Text::Text(const std::string& text, const Vector2& pos)
 		: m_Text(text),
@@ -34,6 +36,6 @@ namespace Gui {
 	{
 		const Vector2& pos = GetPos();
 
-		DrawText(m_Text.c_str(), pos.x, pos.y, m_CurrentStyle->fontSize, m_CurrentStyle->color);
+		DrawText(m_Text.c_str(), pos.x, pos.y, (float)m_CurrentStyle->fontSize, m_CurrentStyle->color);
 	}
 }

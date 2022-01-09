@@ -1,11 +1,11 @@
 #include "MainPage.h"
 #include "MedicineCardPage.h"
-#include "../Gui/Button.h"
-#include "../Gui/PageHandler.h"
-#include "../Gui/Rectangle.h"
-#include "../Gui/Text.h"
+#include <Gui/Button.h>
+#include <Gui/PageHandler.h>
+#include <Gui/Rectangle.h>
+#include <Gui/Text.h>
 
-#include "../Gui/Keyboard.h"
+#include <Gui/Keyboard.h>
 
 namespace Page {
 

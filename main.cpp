@@ -7,7 +7,6 @@
 
 #include <iostream>
 
-
 static int c(void* NotUsed, int argc, char** argv, char** azColName) {
     for (int i = 0; i < argc; i++)
     {
@@ -17,7 +16,6 @@ static int c(void* NotUsed, int argc, char** argv, char** azColName) {
 
 int main(void)
 {
-
     // Create "window"
     InitWindow(800, 480, "Smd");
 

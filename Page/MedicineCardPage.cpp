@@ -1,8 +1,8 @@
 #include "MedicineCardPage.h"
 
-#include "../Gui/Button.h"
-#include "../Gui/PageHandler.h"
-#include "../Page/EditMedicinePage.h"
+#include <Gui/Button.h>
+#include <Gui/PageHandler.h>
+#include <Page/EditMedicinePage.h>
 
 #include "MainPage.h"
 

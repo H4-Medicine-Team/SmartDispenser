@@ -1,5 +1,5 @@
 #include "ScrollBar.h"
-#include "../Application/Input.h"
+#include <Application/Input.h>
 
 namespace Gui {
 	ScrollBar::ScrollBar(const Vector2& position, const Vector2& size, const Vector2& barSize, const Vector2& scrollBarPosition)

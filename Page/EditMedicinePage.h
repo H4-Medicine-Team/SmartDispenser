@@ -1,8 +1,8 @@
 #pragma once
-#include "../Gui/Page.h"
-#include "../Dto/MedicineCardDto.h"
-#include "../DataAccess/LocalDb.h"
-#include "../Gui/Button.h"
+#include <Gui/Page.h>
+#include <Dto/MedicineCardDto.h>
+#include <DataAccess/LocalDb.h>
+#include <Gui/Button.h>
 
 namespace Page {
 	class EditMedicinePage : public Gui::Page

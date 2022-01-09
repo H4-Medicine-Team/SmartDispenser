@@ -80,7 +80,7 @@
     <IncludePath>$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/Raylib;$(SolutionDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="Page\EditMedicinePage.cpp" />
@@ -120,6 +120,9 @@
     <ClInclude Include="vendor\Raylib\Raylib.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3ext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Font\defaultFont.ttf" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Link>

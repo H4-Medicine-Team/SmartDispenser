@@ -1,6 +1,5 @@
 #include "Button.h"
-#include "Raylib.h"
-#include "../Application/Input.h"
+#include <Application/Input.h>
 
 #include <functional>
 

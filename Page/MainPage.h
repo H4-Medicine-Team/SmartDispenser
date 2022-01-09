@@ -1,5 +1,5 @@
 #pragma once
-#include "../Gui/Page.h"
+#include <Gui/Page.h>
 
 namespace Page {
 

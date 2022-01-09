@@ -1,1 +1,0 @@
-g++ -o "/home/pi/SmartDispenser/SmartDispenser/bin/ARM/Debug/SmartDispenser.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /home/pi/SmartDispenser/SmartDispenser/obj/ARM/Debug/main.o -lraylib -lGLESv2 -lEGL -lpthread -lrt -lm -lgbm -ldrm -ldl

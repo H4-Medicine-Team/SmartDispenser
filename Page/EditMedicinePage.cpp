@@ -1,5 +1,5 @@
 #include "EditMedicinePage.h"
-#include "../Gui/PageHandler.h"
+#include <Gui/PageHandler.h>
 #include "MedicineCardPage.h"
 #include <sstream>
 

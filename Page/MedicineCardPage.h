@@ -1,9 +1,9 @@
 #pragma once
-#include "../Gui/Page.h"
-#include "../DataAccess/LocalDb.h"
-#include "../Dto/MedicineCardDto.h"
-#include "../Gui/MedicineButton.h"
-#include "../Gui/ScrollView.h"
+#include <Gui/Page.h>
+#include <DataAccess/LocalDb.h>
+#include <Dto/MedicineCardDto.h>
+#include <Gui/MedicineButton.h>
+#include <Gui/ScrollView.h>
 
 namespace Page {
 	class MedicineCardPage : public Gui::Page {

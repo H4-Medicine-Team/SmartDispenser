@@ -2,7 +2,7 @@
 #include "Gui.h"
 #include "Rectangle.h"
 #include "Text.h"
-#include "../Dto/MedicineCardDto.h"
+#include <Dto/MedicineCardDto.h>
 
 namespace Gui {
 	class MedicineButton :
