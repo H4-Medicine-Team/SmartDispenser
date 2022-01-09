@@ -38,7 +38,19 @@ namespace Page {
 
 		const Dto::MedicineDto& dto = (*m_Data)[currentIndex];
 
-		Gui::PageHandler::Get().Load<EditMedicinePage>(dto);
+		Gui::PageHandler::Get().Load<EditMedicinePage>(dto, true);
+	}
+
+	void MedicineCardPage::OnAddMedicineButtonClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed)
+	{
+		if (isPressed)
+			return;
+
+		Dto::MedicineDto dto = Dto::MedicineDto();
+		dto.name = "navn";
+		dto.amount = 0;
+
+		Gui::PageHandler::Get().Load<EditMedicinePage>(dto, false);
 	}
 
 	void MedicineCardPage::GetMedicineData()
@@ -49,7 +61,7 @@ namespace Page {
 		Clear();
 		m_Data = m_Database.GetMedicineCard();
 
-		m_ScrollView = new Gui::ScrollView({ 0, 50 }, { 800, 320 }, { 25, 40 });
+		m_ScrollView = new Gui::ScrollView({ 5, 50 }, { 790, 320 }, { 30, 40 });
 
 		for (int i = 0; i < m_Data->size(); i++)
 		{
@@ -59,7 +71,8 @@ namespace Page {
 			m_ScrollView->Add(btn);
 		}
 
-		Gui::Button* insertBtn = new Gui::Button("Tilføj", { 20, 380 }, { 760, 50 });
+		Gui::Button* insertBtn = new Gui::Button("Tilfoej", { 5, 400 }, { 780, 50 });
+		insertBtn->SetClickHandler(std::bind(&MedicineCardPage::OnAddMedicineButtonClicked, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 
 		Add(m_ScrollView);
 		Add(insertBtn);

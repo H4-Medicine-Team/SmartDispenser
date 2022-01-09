@@ -83,6 +83,7 @@
     <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/Raylib;$(SolutionDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Gui\EditButton.cpp" />
     <ClCompile Include="Page\EditMedicinePage.cpp" />
     <ClCompile Include="Gui\Button.cpp" />
     <ClCompile Include="Application\Input.cpp" />
@@ -102,6 +103,7 @@
   <ItemGroup>
     <ClInclude Include="DataAccess\IMedicineCardAccess.h" />
     <ClInclude Include="Dto\MedicineCardDto.h" />
+    <ClInclude Include="Gui\EditButton.h" />
     <ClInclude Include="Page\EditMedicinePage.h" />
     <ClInclude Include="Gui\Button.h" />
     <ClInclude Include="Gui\Gui.h" />
@@ -120,9 +122,6 @@
     <ClInclude Include="vendor\Raylib\Raylib.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3ext.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="Font\defaultFont.ttf" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Link>

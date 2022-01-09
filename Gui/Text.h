@@ -6,7 +6,7 @@
 namespace Gui {
 	struct TextStyle {
 		int fontSize = 14;
-		Color color = BLACK;
+		Color color = WHITE;
 	};
 
 	class Text : public Gui
@@ -22,12 +22,12 @@ namespace Gui {
 		/*
 		* Set the current default style for the text
 		*/
-		void SetDefaultStyle(const TextStyle& style) { m_DefaultStyle = style; }
+		void SetDefaultStyle(const TextStyle& style) { m_DefaultStyle = style; SetSize(GetTextSize());}
 
 		/*
 		* Set the current hover style for the current text
 		*/
-		void SetHoverStyle(const TextStyle& style) { m_HoverStyle = style; }
+		void SetHoverStyle(const TextStyle& style) { m_HoverStyle = style; SetSize(GetTextSize());}
 
 		/*
 		* Get the current default style for the text

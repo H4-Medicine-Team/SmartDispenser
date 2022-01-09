@@ -8,8 +8,8 @@ namespace Gui {
 	struct ScrollViewStyle {
 		Color backgrondColor = WHITE;
 		int minHeight = 50;
-		int yMargin = 2;
-		int xMargin = 2;
+		int yMargin = 5;
+		int xMargin = 3;
 		ScrollBarStyle barStyle{};
 	};
 

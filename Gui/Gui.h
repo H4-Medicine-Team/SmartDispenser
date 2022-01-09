@@ -47,7 +47,7 @@ namespace Gui {
 		/*
 		* Set the gui elements size
 		*/
-		virtual void SetSize(const Vector2& pos) { m_Size = pos; }
+		virtual void SetSize(const Vector2& size) { m_Size = size; }
 
 		/*
 		* Set the gui elements size

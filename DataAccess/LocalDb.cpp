@@ -37,8 +37,8 @@ namespace DataAccess {
 		char* errorMsg;
 
 		char* sql = new char[300];
-		sprintf(sql, "DELETE FROM %s (" \
-			"WHERE 'Id' = %i;",
+		sprintf(sql, "DELETE FROM %s " \
+			"WHERE Id = '%i';",
 			m_TableName.c_str(), medicine.id);
 
 		int r = sqlite3_exec(m_DbHandle, sql, 0, 0, &errorMsg);

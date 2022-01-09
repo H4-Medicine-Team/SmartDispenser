@@ -12,7 +12,7 @@ namespace Gui {
 		m_ClickCallback(NULL)
 	{
 		TextStyle defStyle{};
-		defStyle.fontSize = 16;
+		defStyle.fontSize = 20;
 		defStyle.color = WHITE;
 
 		m_DrugNameText.SetDefaultStyle(defStyle);
@@ -72,12 +72,13 @@ namespace Gui {
 		const Vector2& pos = GetPos();
 		const Vector2& center = GetCenter();
 		const Vector2& size = GetSize();
+		float btnHalfHeight = m_DrugNameText.GetSize().y / 2;
 
 		m_Rectangle.SetPos(pos);
 
-		m_DrugNameText.SetPos(pos.x, center.y);
-		m_TimeText.SetPos(pos.x + center.x - (m_TimeText.GetSize().x / 2), center.y);
-		m_AmountText.SetPos(pos.x + size.x - m_AmountText.GetSize().x - 10, center.y);
+		m_DrugNameText.SetPos(5 + pos.x, center.y - btnHalfHeight);
+		m_TimeText.SetPos(pos.x + center.x - (m_TimeText.GetSize().x / 2), center.y - btnHalfHeight);
+		m_AmountText.SetPos(pos.x + size.x - m_AmountText.GetSize().x - 10, center.y - btnHalfHeight);
 	}
 
 	void MedicineButton::RectangleOnClick(Rectangle* btn, const Vector2& mousePos, bool isPressed)
@@ -90,7 +91,11 @@ namespace Gui {
 
 	std::string MedicineButton::TmToString(const tm& tm)
 	{
-		return std::to_string(tm.tm_hour) + ":" + std::to_string(tm.tm_min);
+		char* text = new char[100];
+		strftime(text, 100, "%R", &tm);
+		std::string v = std::string(text);
+		delete text;
+		return v;
 	}
 
 	void MedicineButton::Update()

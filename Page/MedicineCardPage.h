@@ -18,6 +18,11 @@ namespace Page {
 		void OnMedicineClick(Gui::MedicineButton* btn, const Vector2& mousePos, bool isPressed);
 
 		/*
+		* Called when clicking on add medicine button
+		*/
+		void OnAddMedicineButtonClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed);
+
+		/*
 		* Retrieves the medicine data from the database
 		* and sets up the gui
 		*/

@@ -50,10 +50,11 @@ namespace Gui {
 		Vector2 pos = GetPos();
 		Vector2 size = GetSize();
 
-		int textHeight = 25;
+		int textHeight = 35;
 
-		m_Text = new Button("", pos, {size.x, 25});
+		m_Text = new Button("", pos, {size.x, (float)textHeight});
 		ButtonStyle style = m_Text->GetDefaultStyle();
+		style.textStyle.fontSize = 18;
 		style.textStyle.color = WHITE;
 		style.rectangleStyle.borderSize = 0;
 		style.rectangleStyle.rounding = 0;
@@ -63,17 +64,17 @@ namespace Gui {
 
 		pos.y += textHeight;
 
-		int height = (size.y - textHeight) / layout.size();
+		int btnHeight = (size.y - textHeight) / layout.size();
 
 		for (int y = 0; y < layout.size(); y++)
 		{
 			int width = size.x / layout[y].size();
 
-			const Vector2 btnSize = { width, height };
+			const Vector2 btnSize = { width, btnHeight };
 
 			for (int x = 0; x < layout[y].size(); x++)
 			{
-				Vector2 btnPos = {pos.x + width * x, pos.y + height * y};
+				Vector2 btnPos = {pos.x + width * x, pos.y + btnHeight * y};
 				auto btn = new Button(layout[y][x], btnPos, btnSize);
 				btn->SetClickHandler(std::bind(&Keyboard::OnButtonClick, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 

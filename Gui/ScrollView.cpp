@@ -32,7 +32,7 @@ namespace Gui {
 		const Vector2 nextPos = GetPositionForNextItem();
 
 		block->SetPos(nextPos);
-		block->SetSize(GetSize().x - m_ScrollBar.GetSize().x, m_Style.minHeight);
+		block->SetSize(GetSize().x - m_ScrollBar.GetSize().x - (m_Style.xMargin * 2), m_Style.minHeight);
 
 		bool shouldShowBar = GetChildrenHeight() > GetSize().y;
 		m_ScrollBar.SetIsVisible(shouldShowBar);		
@@ -52,10 +52,19 @@ namespace Gui {
 		if (m_ScrollBar.IsVisible())
 			m_ScrollBar.Update();
 
+		const Vector2 pos = GetPos();
+		const Vector2 size = GetSize();
+
 		// Update children
 		for (int i = 0; i < m_Blocks.size(); i++)
 		{
 			if (!m_Blocks[i]->IsVisible())
+				continue;
+
+			const Vector2 childPos = m_Blocks[i]->GetPos();
+			const Vector2 childCenterPos = m_Blocks[i]->GetCenter();
+
+			if (!CheckCollisionPointRec({ childCenterPos.x, childCenterPos.y }, { pos.x, pos.y, size.x, size.y }))
 				continue;
 
 			m_Blocks[i]->Update();
@@ -97,7 +106,7 @@ namespace Gui {
 	const Vector2 ScrollView::GetDefaultPositionForItem(int index, const Vector2& startPos)
 	{
 		return {
-			startPos.x,
+			startPos.x + m_Style.xMargin,
 			startPos.y + (index * m_Style.minHeight) + (m_Style.yMargin * index)
 		};
 	}

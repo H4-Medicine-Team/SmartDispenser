@@ -18,8 +18,12 @@ namespace Page {
 
         Vector2 buttonSize = { 700, 400 };
 
+        Gui::ButtonStyle style{};
+        style.textStyle.fontSize = 25;
+
         // GUi
         Gui::Button* medicineCardBtn = new Gui::Button("Medicinkort", { 50, 25 }, buttonSize);
+        medicineCardBtn->SetDefaultStyle(style);
 
 
         Add(medicineCardBtn);
