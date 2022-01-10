@@ -114,6 +114,10 @@
     <ClInclude Include="..\..\vendor\Sqlite3\sqlite3.h" />
     <ClInclude Include="..\..\vendor\Sqlite3\sqlite3ext.h" />
     <ClInclude Include="TestFramework.h" />
+    <ClInclude Include="Tests\MedicineButtonUnitTest.h" />
+    <ClInclude Include="Tests\RectangleUnitTest.h" />
+    <ClInclude Include="Tests\ScrollbarUnitTest.h" />
+    <ClInclude Include="Tests\ScrollbarViewUnitTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SmartDispenser.vcxproj">

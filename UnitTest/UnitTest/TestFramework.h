@@ -109,23 +109,10 @@ namespace UnitTest {
     CONDITION, \
 });
 
-//class t : public UnitTest::TestCase {
-//public:
-//	t() : TestCase("Hej", "") {};
-//protected:
-//	virtual void Case() override;
-//private:
-//	static const bool registered_;
-//};
-//
-//const bool t::registered_ = UnitTest::TestFramework::Get().AddTests<t>();
-//void t::Case() {};
-
-
 #define TESTCLASS_(TITLE, CASE) \
 class TITLE ## CASE : public UnitTest::TestCase { \
 private: \
-	static const bool registered_; \
+	[[nodiscard]] static const bool registered_; \
 public: \
 	TITLE ## CASE () : TestCase(#TITLE, #CASE) {} \
 protected: \
@@ -135,7 +122,4 @@ void TITLE ## CASE::Case()
 
 
 #define TESTCASE(TITLE, CASE) TESTCLASS_(TITLE, CASE)
-	
-
-	
 }
