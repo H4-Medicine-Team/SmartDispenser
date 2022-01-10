@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Gui/Rectangle.h>
-#include <Gui/Text.h>
+#include "../Gui/Rectangle.h"
+#include "../Gui/Text.h"
 
 namespace Gui {
 	class EditButton : public Gui
