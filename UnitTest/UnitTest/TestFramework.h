@@ -60,15 +60,14 @@ namespace UnitTest {
 		TestFramework(TestFramework const&) = delete;
 		void operator=(TestFramework const&) = delete;
 
-		TestFramework()
-		: m_Tests() {};
-
-
+		TestFramework() {};
 		~TestFramework() {};
 
-		template<typename T>
-		inline bool AddTests() {
-			TestCase* testCase = new T();
+		inline bool AddTests(TestCase* tCase) {
+			if (TestFramework::m_Tests.size() == 0)
+				TestFramework::m_Tests = std::vector<AssertOutput>();
+
+			TestCase* testCase = tCase;
 			const std::vector<AssertOutput>& v = testCase->GetTestCases();
 
 			for (int i = 0; i < v.size(); i++)
@@ -98,7 +97,7 @@ namespace UnitTest {
 				std::cout << "\033[31m" << message << std::endl;
 		}
 	private:
-		std::vector<AssertOutput> m_Tests;
+		inline static std::vector<AssertOutput> m_Tests = std::vector<AssertOutput>();
 	};
 
 
@@ -112,12 +111,12 @@ namespace UnitTest {
 #define TESTCLASS_(TITLE, CASE) \
 class TITLE ## CASE : public UnitTest::TestCase { \
 private: \
-	[[nodiscard]] static const bool registered_; \
+	static const bool registered_; \
 public: \
 	TITLE ## CASE () : TestCase(#TITLE, #CASE) {} \
 protected: \
     virtual void Case() override; };\
-const bool TITLE ## CASE::registered_ = UnitTest::TestFramework::Get().AddTests<TITLE ## CASE>(); \
+const bool TITLE ## CASE::registered_ = UnitTest::TestFramework::Get().AddTests(new TITLE ## CASE()); \
 void TITLE ## CASE::Case()
 
 
