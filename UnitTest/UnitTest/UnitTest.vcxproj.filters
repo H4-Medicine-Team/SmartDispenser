@@ -37,9 +37,25 @@
     <ClCompile Include="..\..\Gui\Text.cpp">
       <Filter>Include</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\ButtonUnitTest.h" />
-    <ClCompile Include="Tests\EditButtonUnitTest.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tests\ButtonUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\EditButtonUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\MedicineButtonUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\RectangleUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\ScrollbarUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\ScrollbarViewUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Gui\Button.h">
@@ -97,14 +113,13 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="TestFramework.h" />
-    <ClInclude Include="Tests\MedicineButtonUnitTest.h" />
-    <ClInclude Include="Tests\RectangleUnitTest.h" />
-    <ClInclude Include="Tests\ScrollbarUnitTest.h" />
-    <ClInclude Include="Tests\ScrollbarViewUnitTest.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Include">
       <UniqueIdentifier>{6059dd75-25ea-4440-b31b-dd7eecef3434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{8209f957-f888-4e6f-a91f-965be4ef5216}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

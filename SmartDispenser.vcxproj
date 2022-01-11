@@ -98,6 +98,11 @@
     <ClCompile Include="Page\MedicineCardPage.cpp" />
     <ClCompile Include="Gui\Rectangle.cpp" />
     <ClCompile Include="Gui\Text.cpp" />
+    <ClCompile Include="Page\SortPage.cpp" />
+    <ClCompile Include="Models\SortModels\Pill.cpp" />
+    <ClCompile Include="Models\SortModels\SortBox.cpp" />
+    <ClCompile Include="SortMedicine\SortManager.cpp" />
+    <ClCompile Include="SortMedicine\SortDataCaller.cpp" />
     <ClCompile Include="vendor\Sqlite3\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +124,12 @@
     <ClInclude Include="Gui\ScrollBar.h" />
     <ClInclude Include="Gui\Rectangle.h" />
     <ClInclude Include="Gui\Text.h" />
+    <ClInclude Include="Page\SortPage.h" />
+    <ClInclude Include="Models\SortModels\Pill.h" />
+    <ClInclude Include="Models\SortModels\SortBox.h" />
+    <ClInclude Include="SortMedicine\ISortBoxesAccess.h" />
+    <ClInclude Include="SortMedicine\SortManager.h" />
+    <ClInclude Include="SortMedicine\SortDataCaller.h" />
     <ClInclude Include="vendor\Raylib\Raylib.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3ext.h" />

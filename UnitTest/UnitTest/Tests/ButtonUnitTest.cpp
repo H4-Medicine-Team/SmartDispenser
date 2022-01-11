@@ -1,17 +1,16 @@
 #pragma once
 #include <TestFramework.h>
-
-#include "../../Gui/EditButton.h"
+#include "../../Gui/Button.h"
 
 static bool EqualVector(const Vector2& v1, const Vector2& v2) {
 	return (v1.x == v2.x && v1.y == v2.y);
 }
 
-TESTCLASS_(EditButtonShould, HaveSamePositionWhenCreated) {
+TESTCASE(ButtonShould, HaveSamePositionWhenCreated) {
 	// Arrange
-	Vector2 expectedPos = { 0, 0 };
+	Vector2 expectedPos = {0, 0};
 	Vector2 btnPos;
-	auto btn = Gui::EditButton("Test", "EditTest", { 0, 0 }, {100, 100});
+	auto btn = Gui::Button("Test", {0, 0}, { 100, 100 });
 
 	// Act
 	btnPos = btn.GetPos();
@@ -20,11 +19,11 @@ TESTCLASS_(EditButtonShould, HaveSamePositionWhenCreated) {
 	ASSERT(EqualVector(expectedPos, btnPos));
 };
 
-TESTCLASS_(EditButtonShould, HaveCorrectCenterPosition) {
+TESTCASE(ButtonShould, HaveCorrectCenterPosition) {
 	// Arrange
 	Vector2 expectedPos = { 50, 50 };
 	Vector2 btnPos;
-	auto btn = Gui::EditButton("Test", "EditTest", { 0, 0 }, { 100, 100 });
+	auto btn = Gui::Button("Test", {0, 0}, { 100, 100 });
 
 	// Act
 	btnPos = btn.GetCenter();
@@ -33,11 +32,11 @@ TESTCLASS_(EditButtonShould, HaveCorrectCenterPosition) {
 	ASSERT(EqualVector(expectedPos, btnPos));
 };
 
-TESTCLASS_(EditButtonShould, IsDefaultVisible) {
+TESTCASE(ButtonShould, IsDefaultVisible) {
 	// Arrange
 	bool expected = true;
 	bool actual;
-	auto btn = Gui::EditButton("Test", "EditTest", { 0, 0 }, { 100, 100 });
+	auto btn = Gui::Button("Test", { 0, 0 }, { 100, 100 });
 
 	// Act
 	actual = btn.IsVisible();
@@ -46,11 +45,11 @@ TESTCLASS_(EditButtonShould, IsDefaultVisible) {
 	ASSERT(expected == actual);
 };
 
-TESTCLASS_(EditButtonShould, TextIsActual) {
+TESTCASE(ButtonShould, TextIsActual) {
 	// Arrange
-	std::string expected = "EditTest";
+	std::string expected = "Test";
 	std::string actual;
-	auto btn = Gui::EditButton("Test", "EditTest", { 0, 0 }, { 100, 100 });
+	auto btn = Gui::Button("Test", { 0, 0 }, { 100, 100 });
 
 	// Act
 	actual = btn.GetText();
@@ -59,11 +58,11 @@ TESTCLASS_(EditButtonShould, TextIsActual) {
 	ASSERT(expected == actual);
 };
 
-TESTCLASS_(EditButtonShould, SizeIsActual) {
+TESTCASE(ButtonShould, SizeIsActual) {
 	// Arrange
 	Vector2 expected = { 100, 100 };
 	Vector2 actual;
-	auto btn = Gui::EditButton("Test", "EditTest", { 0, 0 }, { 100, 100 });
+	auto btn = Gui::Button("Test", { 0, 0 }, { 100, 100 });
 
 	// Act
 	actual = btn.GetSize();
