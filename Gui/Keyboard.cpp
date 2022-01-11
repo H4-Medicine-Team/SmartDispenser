@@ -12,7 +12,7 @@ namespace Gui {
 			{"mellemrum"}
 	};
 
-	static std::vector<std::vector<const char*>> danish_layout_op = {
+	static std::vector<std::vector<const char*>> danish_layout_up = {
 			{"ryd", "ok", "slet"},
 			{"!", "@", "#", "$", "%", "&", "/", "(", ")", "="},
 			{"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "Å"},
@@ -107,7 +107,7 @@ namespace Gui {
 			if (m_IsUp)
 				GenerateButtons(danish_layout);
 			else
-				GenerateButtons(danish_layout_op);
+				GenerateButtons(danish_layout_up);
 
 			m_IsUp = !m_IsUp;
 		}

@@ -40,7 +40,7 @@ namespace Gui {
 		const TextStyle& GetHoverStyle() { return m_HoverStyle; }
 
 		/*
-		* Set the crrent text for the text element
+		* Set the current text for the text element
 		*/
 		void SetText(const std::string& text);
 
