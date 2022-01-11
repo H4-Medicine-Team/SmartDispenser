@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\Gui\Button.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\EditButton.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Application\Input.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Keyboard.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\DataAccess\LocalDb.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\MedicineButton.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Page.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Rectangle.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\ScrollBar.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\ScrollView.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\vendor\Sqlite3\sqlite3.c">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Text.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\ButtonUnitTest.h" />
+    <ClCompile Include="Tests\EditButtonUnitTest.h" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Gui\Button.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\EditButton.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Gui.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DataAccess\IMedicineCardAccess.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Application\Input.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Keyboard.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DataAccess\LocalDb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\MedicineButton.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Dto\MedicineCardDto.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Page.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\PageHandler.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vendor\Raylib\Raylib.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Rectangle.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\ScrollBar.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\ScrollView.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vendor\Sqlite3\sqlite3.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vendor\Sqlite3\sqlite3ext.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Text.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="TestFramework.h" />
+    <ClInclude Include="Tests\MedicineButtonUnitTest.h" />
+    <ClInclude Include="Tests\RectangleUnitTest.h" />
+    <ClInclude Include="Tests\ScrollbarUnitTest.h" />
+    <ClInclude Include="Tests\ScrollbarViewUnitTest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{6059dd75-25ea-4440-b31b-dd7eecef3434}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

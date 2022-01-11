@@ -1,41 +1,38 @@
 #include "Raylib.h"
-#include <string.h>
-#include <stdio.h>
+#include "Application/Input.h"
+#include "Gui/PageHandler.h"
+
+#include "Page/MainPage.h"
+#include "DataAccess/LocalDb.h"
+
+#include <iostream>
+
+static int c(void* NotUsed, int argc, char** argv, char** azColName) {
+    for (int i = 0; i < argc; i++)
+    {
+        std::cout << "result: " << argv[i] << std::endl;
+    }
+}
 
 int main(void)
 {
-    InitWindow(800, 450, "raylib [core] example - basic window");
-    Vector2 touchPosition = { 0, 0 };
-    Rectangle touchArea = { 220, 10, 800 - 230.0f, 450 - 20.0f };
+    // Create "window"
+    InitWindow(800, 480, "Smd");
 
-    int currentGesture = GESTURE_NONE;
-    int lastGesture = GESTURE_NONE;
+    // Set current page
+    Gui::PageHandler::Get().Load<Page::MainPage>();
 
-    Vector2 start = {200, 200};
-
-    SetGesturesEnabled(GESTURE_TAP);
-
+    // Update & draw loop
     while (!WindowShouldClose())
     {
-        currentGesture = GetGestureDetected();
-        touchPosition = GetTouchPosition(0);
-
-        printf("x: %3.1f y: %3.1f touch: %d\n", touchPosition.x, touchPosition.y, currentGesture);
-
-        if (CheckCollisionPointRec(touchPosition, touchArea) && (touchPosition.x > 0 && touchPosition.y > 0))
-        {
-            start = Vector2{ touchPosition.x, touchPosition.y };
-        }
+        Application::Input::Get().Update();
 
         BeginDrawing();
-        ClearBackground(Color{10,250,50,255});
-        DrawRectangle(touchArea.x, touchArea.y, touchArea.width, touchArea.height, RED);
-        DrawText("Congrats! You created your first window!", start.x, start.y, 20, Color{100,50,250,255});
+        Gui::PageHandler::Get().Loop();
         EndDrawing();
-
-
     }
 
+    // Close "window" free resources
     CloseWindow();
 
     return 0;
