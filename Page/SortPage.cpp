@@ -3,7 +3,6 @@
 
 namespace Page {
 
-	Sorting::SortDataCaller caller;
 #pragma region BUTTON_CLICK
 
 	static void boxOneClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed) {
@@ -11,12 +10,12 @@ namespace Page {
 		if (!isPressed)
 		{
 			// open box 1
-			std::cout << "\nBox with id 0:" << std::endl;
+	/*		std::cout << "\nBox with id 0:" << std::endl;
 
 			auto box = caller.GetBox(0);
 			std::cout << "Box id " << box.GetBoxId() << " pill amount " << box.GetPillAmount()
 				<< "\n pill id:" << box.GetPill().GetID() << " Pill name: " << box.GetPill().GetName()
-				<< std::endl;
+				<< std::endl;*/
 
 		}
 	}
@@ -27,12 +26,12 @@ namespace Page {
 		if (!isPressed)
 		{
 			// open box 1
-			std::cout << "\nBox with id 1:" << std::endl;
+	/*		std::cout << "\nBox with id 1:" << std::endl;
 
 			auto box = caller.GetBox(1);
 			std::cout << "Box id " << box.GetBoxId() << " pill amount " << box.GetPillAmount()
 				<< "\n pill id:" << box.GetPill().GetID() << " Pill name: " << box.GetPill().GetName()
-				<< std::endl;
+				<< std::endl;*/
 
 		}
 	}
@@ -42,12 +41,12 @@ namespace Page {
 		if (!isPressed)
 		{
 			// open box 1
-			std::cout << "\nBox with id 2:" << std::endl;
+		/*	std::cout << "\nBox with id 2:" << std::endl;
 
 			auto box = caller.GetBox(2);
 			std::cout << "Box id " << box.GetBoxId() << " pill amount " << box.GetPillAmount()
 				<< "\n pill id:" << box.GetPill().GetID() << " Pill name: " << box.GetPill().GetName()
-				<< std::endl;
+				<< std::endl;*/
 
 		}
 	}
@@ -70,23 +69,5 @@ namespace Page {
 		Add(boxOneBtn);
 		Add(boxTwoBtn);
 		Add(boxThreeBtn);
-
-		Sorting::Models::Pill pill1("Paracetamol", 0, "987");
-		Sorting::Models::Pill pill2("Vitamin C", 1, "654");
-		Sorting::Models::Pill pill3("Ibuprofen", 2, "321");
-
-		caller.AddPillToBox(0, pill1, 5);
-		caller.AddPillToBox(1, pill2, 10);
-		caller.AddPillToBox(2, pill3, 6);
-
-
-
-		//
-
-		//Sorting::Models::Pill pill("Paracetamol", 69, "759028");
-		//caller.AddPillToBox(0, pill, 5);
-
-		//Sorting::Models::Pill pill2("C Vitamin", 4, "6894");
-		//caller.AddPillToBox(1, pill2, 10);
 	}
 }

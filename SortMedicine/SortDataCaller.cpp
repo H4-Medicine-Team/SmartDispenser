@@ -13,8 +13,8 @@ Sorting::SortDataCaller::~SortDataCaller()
 std::vector<Sorting::Models::SortBox> Sorting::SortDataCaller::GetBoxes()
 {
 	SortDataCaller::Open();
-
-	const char* selectQuery = "Select * from 'Boxes', 'Pills' where 'Boxes'.Pill_id == 'Pills'.id";
+	
+	const char* selectQuery = "Select * from Boxes inner join Pills where Boxes.Pill_id = Pills.id";
 
 	sqlite3_stmt* stmt;
 
@@ -67,9 +67,10 @@ void Sorting::SortDataCaller::AddPillToBox(const int boxID, Models::Pill pill, c
 		pill.GetID(), pill.GetName().c_str(), pill.GetExternalID().c_str());
 
 
-	sprintf(sqlBox, "Update 'Boxes' set Pill_Amount = %i, Pill_Id = %i where 'Boxes'.Id = %i",
+	sprintf(sqlBox, "Update 'Boxes' set Pill_Amount = %i, Pill_Id = %i where 'Boxes'.Id = %i;",
 		amount, pill.GetID(), boxID);
 
+	
 	RunQuery(sql, "Cannot insert into pills");
 	RunQuery(sqlBox, "Cannot insert into pills");
 
@@ -128,7 +129,7 @@ Sorting::Models::SortBox Sorting::SortDataCaller::GetBox(const int _boxID)
 
 	char* sqlBox = new char[200];
 
-	sprintf(sqlBox, "Select * from 'Boxes', 'Pills' where 'Boxes'.Id == '%i';", _boxID);
+	sprintf(sqlBox, "Select * from Boxes inner join Pills on Boxes.Id = '%i' and Boxes.pill_id = Pills.id;", _boxID);
 
 	sqlite3_stmt* stmt;
 

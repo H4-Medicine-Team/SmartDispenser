@@ -128,6 +128,7 @@
     <ClInclude Include="Models\SortModels\Pill.h" />
     <ClInclude Include="Models\SortModels\SortBox.h" />
     <ClInclude Include="SortMedicine\ISortBoxesAccess.h" />
+    <ClInclude Include="SortMedicine\ISortDataManager.h" />
     <ClInclude Include="SortMedicine\SortManager.h" />
     <ClInclude Include="SortMedicine\SortDataCaller.h" />
     <ClInclude Include="vendor\Raylib\Raylib.h" />
