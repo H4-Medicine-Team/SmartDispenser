@@ -3,7 +3,7 @@
 #include <vector>
 #include <sqlite3.h>
 
-#include "../SortMedicine/ISortBoxesAccess.h"
+#include "../DataAccess/ISortBoxesAccess.h"
 #include "../Models/SortModels/SortBox.h"
 
 namespace Sorting {
@@ -18,6 +18,7 @@ namespace Sorting {
 		// Inherited via ISortBoxesAccess
 		virtual std::vector<Models::SortBox> GetBoxes() override;
 		virtual Models::SortBox GetBox(const int boxID) override;
+		virtual Models::SortBox* GetBoxWithThePillID(const int pillId) override;
 		virtual void AddPillsToBox(const int boxID, const int amount) override;
 		virtual void RemovePillsFromBox(const int boxID, const int amount) override;
 		virtual void AddPillToBox(const int boxID, Models::Pill pill, const int amount) override;
@@ -36,6 +37,7 @@ namespace Sorting {
 
 		const std::string m_DbName;
 		sqlite3* m_DbHandle;
+
 
 		// Inherited via ISortBoxesAccess
 	};

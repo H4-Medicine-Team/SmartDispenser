@@ -1,4 +1,5 @@
 #include "SortDataCaller.h"
+#include "../vendor/Sqlite3/sqlite3.c"
 
 Sorting::SortDataCaller::SortDataCaller() : m_DbName("Sort.db")
 {
@@ -52,10 +53,22 @@ std::vector<Sorting::Models::SortBox> Sorting::SortDataCaller::GetBoxes()
 
 void Sorting::SortDataCaller::AddPillsToBox(const int boxID, const int amount)
 {
+	char* sql = "";
+
+	sprintf(sql, "Update 'Boxes' set Pill_Amount = (select Pill_amount from Boxes where 'Boxes'.Id = %i) + %i where 'Boxes'.Id = %i;",
+		boxID, amount, boxID);
+
+	RunQuery(sql, "Cant add pills into box");
 }
 
 void Sorting::SortDataCaller::RemovePillsFromBox(const int boxID, const int amount)
 {
+	char* sql = "";
+
+	sprintf(sql, "Update 'Boxes' set Pill_Amount = (select Pill_amount from Boxes where 'Boxes'.Id = %i) - %i where 'Boxes'.Id = %i;",
+		boxID, amount, boxID);
+
+	RunQuery(sql, "Cant remove pills into box");
 }
 
 void Sorting::SortDataCaller::AddPillToBox(const int boxID, Models::Pill pill, const int amount)
@@ -81,7 +94,26 @@ void Sorting::SortDataCaller::AddPillToBox(const int boxID, Models::Pill pill, c
 
 int Sorting::SortDataCaller::GetEmptyBox()
 {
-	return -1;
+	char* sqlBox = "Select * from Boxes where 'Boxes'.Pills_Amount = 0";
+
+	sqlite3_stmt* stmt;
+
+	int rc = sqlite3_prepare_v2(m_DbHandle, sqlBox, -1, &stmt, NULL);
+
+	if (rc != 0)
+		throw "Could not find empty boxes";
+
+	int boxID = -1;
+
+	if ((rc = sqlite3_step(stmt)) == SQLITE_ROW)
+	{
+		boxID = sqlite3_column_int(stmt, 0);
+	}
+
+	sqlite3_finalize(stmt);
+
+
+	return boxID;
 }
 
 void Sorting::SortDataCaller::Open()
@@ -111,14 +143,9 @@ void Sorting::SortDataCaller::CreateTables()
 		"External_id Text NOT NULL" \
 		");";
 
-	//std::string boxDeafultQuery = "\
-	//							   \
-	//							   ";
-
 
 	RunQuery(boxSqlQuery, "Cannot create table Boxes");
 	RunQuery(pillSqlQuery, "Cannot create table Pills");
-	//RunQuery(boxDeafultQuery, "Cannot insert default table data boxes:");
 }
 
 Sorting::Models::SortBox Sorting::SortDataCaller::GetBox(const int _boxID)
@@ -164,6 +191,47 @@ Sorting::Models::SortBox Sorting::SortDataCaller::GetBox(const int _boxID)
 	return box;
 }
 
+Sorting::Models::SortBox* Sorting::SortDataCaller::GetBoxWithThePillID(const int pillId)
+{
+	char* sqlQuery = "";
+
+	sprintf(sqlQuery, "Select * from Boxes where 'Boxes'.Pill_Id = %i", pillId);
+
+	sqlite3_stmt* stmt;
+
+	int rc = sqlite3_prepare_v2(m_DbHandle, sqlQuery, -1, &stmt, NULL);
+
+	if (rc != 0)
+		throw "Could not find empty boxes";
+
+
+	Sorting::Models::SortBox* box = nullptr;
+
+	if ((rc = sqlite3_step(stmt)) == SQLITE_ROW)
+	{
+		int boxID = sqlite3_column_int(stmt, 0);
+		box = new Sorting::Models::SortBox(boxID);
+
+		int boxID = sqlite3_column_int(stmt, 0);
+		int boxPillAmount = sqlite3_column_int(stmt, 1);
+
+		int pillID = sqlite3_column_int(stmt, 3);
+
+		std::string pillName = std::string((const char*)sqlite3_column_text(stmt, 4));
+		std::string pillExternalID = std::string((const char*)sqlite3_column_text(stmt, 5));
+
+		Models::Pill pill(pillName, pillID, pillExternalID);
+
+		box->SetPill(pill, boxPillAmount);
+	}
+
+	sqlite3_finalize(stmt);
+
+
+	return box;
+}
+
+
 
 void Sorting::SortDataCaller::RunQuery(std::string queryString, const char* throwMessage)
 {
@@ -178,4 +246,5 @@ void Sorting::SortDataCaller::RunQuery(std::string queryString, const char* thro
 
 	SortDataCaller::Close();
 }
+
 

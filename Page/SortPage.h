@@ -3,8 +3,8 @@
 
 #include "../Gui/Page.h"
 #include "../Gui/Button.h"
-#include "../SortMedicine/SortManager.h"
 #include "../Models/SortModels/SortBox.h"
+#include "../SortMedicine/ISortDataManager.h"
 
 namespace Page {
 
@@ -12,5 +12,8 @@ namespace Page {
 	{
 	public:
 		SortPage();
+
+	public:
+		Sorting::ISortDataManager* m_dataManager;
 	};
 }

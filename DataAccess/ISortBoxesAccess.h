@@ -31,6 +31,11 @@ namespace Sorting {
 		virtual void AddPillToBox(const int boxID, Models::Pill pill, const int amount) = 0;
 
 		/*
+		* Gets the box that contains the pill id 
+		*/
+		virtual Models::SortBox* GetBoxWithThePillID(const int pillId) = 0;
+
+		/*
 		* Returns id of an empty box
 		*/
 		virtual int GetEmptyBox() = 0;

@@ -1,6 +1,5 @@
 #pragma once
-#include "../SortMedicine/SortDataCaller.h"
-#include "ISortBoxesAccess.h"
+#include "../DataAccess/ISortBoxesAccess.h"
 #include "ISortDataManager.h"
 
 namespace Sorting {
