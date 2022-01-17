@@ -16,7 +16,7 @@ namespace Page {
     }
     static void sortCall(Gui::Button* btn, const Vector2& mousePos, bool isPressed) {
         if (!isPressed)
-            Gui::PageHandler::Get().Load<SortPage>();
+            Gui::PageHandler::Get().Load<SortPage>(new Medicine);
     }
 
     MainPage::MainPage() {

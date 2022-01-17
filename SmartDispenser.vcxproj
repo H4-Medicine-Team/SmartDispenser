@@ -80,9 +80,10 @@
     <IncludePath>$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/Raylib;$(SolutionDir);$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/WiringPi;$(ProjectDir)vendor/Raylib;$(SolutionDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="SortMedicine\DispenserController.cpp" />
     <ClCompile Include="Gui\EditButton.cpp" />
     <ClCompile Include="Page\EditMedicinePage.cpp" />
     <ClCompile Include="Gui\Button.cpp" />
@@ -106,7 +107,9 @@
     <ClCompile Include="vendor\Sqlite3\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SortMedicine\IControllDispenser.h" />
     <ClInclude Include="DataAccess\IMedicineCardAccess.h" />
+    <ClInclude Include="SortMedicine\DispenserController.h" />
     <ClInclude Include="Dto\MedicineCardDto.h" />
     <ClInclude Include="Gui\EditButton.h" />
     <ClInclude Include="Page\EditMedicinePage.h" />
@@ -134,10 +137,11 @@
     <ClInclude Include="vendor\Raylib\Raylib.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3ext.h" />
+    <ClInclude Include="vendor\WiringPi\wiringPi.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Link>
-      <LibraryDependencies>raylib;GLESv2;EGL;pthread;rt;m;gbm;drm;dl</LibraryDependencies>
+      <LibraryDependencies>raylib;GLESv2;EGL;pthread;rt;m;gbm;drm;dl;wiringPi</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

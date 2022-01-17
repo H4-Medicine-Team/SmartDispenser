@@ -1,5 +1,4 @@
 #include "SortDataCaller.h"
-#include "../vendor/Sqlite3/sqlite3.c"
 
 Sorting::SortDataCaller::SortDataCaller() : m_DbName("Sort.db")
 {
@@ -211,8 +210,6 @@ Sorting::Models::SortBox* Sorting::SortDataCaller::GetBoxWithThePillID(const int
 	{
 		int boxID = sqlite3_column_int(stmt, 0);
 		box = new Sorting::Models::SortBox(boxID);
-
-		int boxID = sqlite3_column_int(stmt, 0);
 		int boxPillAmount = sqlite3_column_int(stmt, 1);
 
 		int pillID = sqlite3_column_int(stmt, 3);
