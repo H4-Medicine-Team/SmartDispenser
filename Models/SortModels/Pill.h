@@ -8,7 +8,7 @@ namespace Sorting {
 		{
 		public:
 			Pill() = default;
-			Pill(const std::string _name, const int _id, const std::string _external_id);
+			Pill(const std::string _name, const int _id, const std::string _externalId);
 
 		public:
 			inline std::string GetName() { return name; }

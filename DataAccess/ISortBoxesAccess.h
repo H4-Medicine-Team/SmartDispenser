@@ -13,7 +13,7 @@ namespace Sorting {
 		*/
 		virtual std::vector<Models::SortBox> GetBoxes() = 0;
 
-		virtual Models::SortBox GetBox(const int boxID) = 0;
+		virtual Models::SortBox* GetBox(const int boxID) = 0;
 
 		/*
 		* Inserts pill amount of box in case of a refill
@@ -38,18 +38,6 @@ namespace Sorting {
 		/*
 		* Returns id of an empty box
 		*/
-		virtual int GetEmptyBox() = 0;
-
-	protected:
-		/*
-		* Opens the connection to the database
-		*/
-		virtual void Open() = 0;
-
-		/*
-		* closes the connection to the database
-		*/
-		virtual void Close() = 0;
-
+		virtual int GetEmptyBoxId() = 0;
 	};
 }

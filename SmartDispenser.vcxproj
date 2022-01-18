@@ -83,6 +83,7 @@
     <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/WiringPi;$(ProjectDir)vendor/Raylib;$(SolutionDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="DataAccess\SortDataCallerMock.cpp" />
     <ClCompile Include="SortMedicine\DispenserController.cpp" />
     <ClCompile Include="Gui\EditButton.cpp" />
     <ClCompile Include="Page\EditMedicinePage.cpp" />
@@ -107,6 +108,7 @@
     <ClCompile Include="vendor\Sqlite3\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataAccess\SortDataCallerMock.h" />
     <ClInclude Include="SortMedicine\IControllDispenser.h" />
     <ClInclude Include="DataAccess\IMedicineCardAccess.h" />
     <ClInclude Include="SortMedicine\DispenserController.h" />

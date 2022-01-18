@@ -56,6 +56,14 @@
     <ClCompile Include="Tests\ScrollbarViewUnitTest.cpp">
       <Filter>Tests</Filter>
     </ClCompile>
+    <ClCompile Include="SortDataCallerTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\DataAccess\SortDataCallerMock.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Models\SortModels\Pill.cpp" />
+    <ClCompile Include="..\..\Models\SortModels\SortBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Gui\Button.h">
@@ -113,6 +121,18 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="TestFramework.h" />
+    <ClInclude Include="..\..\DataAccess\SortDataCallerMock.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DataAccess\ISortBoxesAccess.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Models\SortModels\Pill.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Models\SortModels\SortBox.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Include">

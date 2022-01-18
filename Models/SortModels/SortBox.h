@@ -15,7 +15,7 @@ namespace Sorting {
 			inline int GetBoxId() { return boxId; };
 			inline int GetPillAmount() { return pillAmount; }
 			inline Pill GetPill() { return pill; }
-			inline void SetID(const int id) { boxId = id; }
+			inline void SetBoxId(const int id) { boxId = id; }
 			void SetPill(Pill _pill, const int amount);
 
 		private:

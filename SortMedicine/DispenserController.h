@@ -16,11 +16,20 @@ namespace Sorting {
 		void Update(int distance) override;
 
 	public:
+		/*
+		Gets designated pin that is connected to the servo motor
+		*/
 		inline int GetPin() { return m_gpioPin; }
+
+		/*
+		Sets the designated pin
+		*/
 		inline void SetPin(int pin) { m_gpioPin = pin; }
-		inline int GetCurrentPosition() { return m_currentDegrees; }
 	
 	private:
+		/*
+		Default gpio pin is 19, on Raspbery pi 4 b
+		*/
 		int m_gpioPin = 19;
 	};
 }

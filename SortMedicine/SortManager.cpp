@@ -17,14 +17,16 @@ namespace Sorting {
 
 		// Test data
 		const int maxBoxes = 3;
-		const int boxWidth = 10;
+
+		// width in cm
+		const int boxWidth = 5;
 
 	
 		// get current posion of the motor
 		int currentDegress = m_dispenserController->GetCurrentDegrees();
 
 
-		// Calculate the length the motor has to move 
+		// Calculate the distance the motor has to move 
 		int cmMove = 0;
 
 		m_dispenserController->Update(cmMove);
@@ -55,12 +57,11 @@ namespace Sorting {
 		if (box == nullptr) {
 
 			// see if there is a place for the box
-			int freeBox = m_access->GetEmptyBox();
+			int freeBox = m_access->GetEmptyBoxId();
 
-			// TODO: change throw to something diffrent
+			// There is no empty place for the pill
 			if (freeBox == -1)
 				throw "No empty box";
-
 
 			m_access->AddPillToBox(freeBox, pill, amount);
 		}

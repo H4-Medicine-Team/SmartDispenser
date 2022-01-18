@@ -17,9 +17,10 @@ namespace Page {
 		SortPage();
 		~SortPage();
 		
-		void boxOneClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed); 
-		void boxTwoClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed);
-		void boxThreeClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed);
+
+		void onBoxOneClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed); 
+		void onBoxTwoClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed);
+		void onBoxThreeClicked(Gui::Button* btn, const Vector2& mousePos, bool isPressed);
 	private:
 		Sorting::ISortDataManager* m_sortManager;
 	};

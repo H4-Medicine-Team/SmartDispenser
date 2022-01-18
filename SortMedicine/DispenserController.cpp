@@ -7,6 +7,7 @@ namespace Sorting {
 
 	void DispenserController::Setup()
 	{
+		// setupgpio will error code if it doesnt setup
 		int setup = wiringPiSetupGpio();
 
 		if (setup != 0)
@@ -21,8 +22,8 @@ namespace Sorting {
 
 	void DispenserController::Update(int distance)
 	{
-		// Do some math to calculate the value
-		int rotateValue = distance + 50;
+		// Calculate the value that the servo motor has to move
+		int rotateValue = distance * 50;
 
 		pwmWrite(GetPin(), rotateValue);
 		delay(1000);
