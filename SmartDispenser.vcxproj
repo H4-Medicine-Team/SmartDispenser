@@ -80,9 +80,11 @@
     <IncludePath>$(ProjectDir)vendor/Raylib;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/Raylib;$(SolutionDir);$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)vendor/Sqlite3;$(ProjectDir)vendor/WiringPi;$(ProjectDir)vendor/Raylib;$(SolutionDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="DataAccess\SortDataCallerMock.cpp" />
+    <ClCompile Include="SortMedicine\DispenserController.cpp" />
     <ClCompile Include="Gui\EditButton.cpp" />
     <ClCompile Include="Page\EditMedicinePage.cpp" />
     <ClCompile Include="Gui\Button.cpp" />
@@ -98,10 +100,18 @@
     <ClCompile Include="Page\MedicineCardPage.cpp" />
     <ClCompile Include="Gui\Rectangle.cpp" />
     <ClCompile Include="Gui\Text.cpp" />
+    <ClCompile Include="Page\SortPage.cpp" />
+    <ClCompile Include="Models\SortModels\Pill.cpp" />
+    <ClCompile Include="Models\SortModels\SortBox.cpp" />
+    <ClCompile Include="SortMedicine\SortManager.cpp" />
+    <ClCompile Include="DataAccess\SortDataCaller.cpp" />
     <ClCompile Include="vendor\Sqlite3\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataAccess\SortDataCallerMock.h" />
+    <ClInclude Include="SortMedicine\IControllDispenser.h" />
     <ClInclude Include="DataAccess\IMedicineCardAccess.h" />
+    <ClInclude Include="SortMedicine\DispenserController.h" />
     <ClInclude Include="Dto\MedicineCardDto.h" />
     <ClInclude Include="Gui\EditButton.h" />
     <ClInclude Include="Page\EditMedicinePage.h" />
@@ -119,13 +129,21 @@
     <ClInclude Include="Gui\ScrollBar.h" />
     <ClInclude Include="Gui\Rectangle.h" />
     <ClInclude Include="Gui\Text.h" />
+    <ClInclude Include="Page\SortPage.h" />
+    <ClInclude Include="Models\SortModels\Pill.h" />
+    <ClInclude Include="Models\SortModels\SortBox.h" />
+    <ClInclude Include="DataAccess\ISortBoxesAccess.h" />
+    <ClInclude Include="SortMedicine\ISortDataManager.h" />
+    <ClInclude Include="SortMedicine\SortManager.h" />
+    <ClInclude Include="DataAccess\SortDataCaller.h" />
     <ClInclude Include="vendor\Raylib\Raylib.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3.h" />
     <ClInclude Include="vendor\Sqlite3\sqlite3ext.h" />
+    <ClInclude Include="vendor\WiringPi\wiringPi.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Link>
-      <LibraryDependencies>raylib;GLESv2;EGL;pthread;rt;m;gbm;drm;dl</LibraryDependencies>
+      <LibraryDependencies>raylib;GLESv2;EGL;pthread;rt;m;gbm;drm;dl;wiringPi</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

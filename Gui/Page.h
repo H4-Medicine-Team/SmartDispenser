@@ -20,7 +20,7 @@ namespace Gui {
 		/*
 		* Set background color
 		*/
-		inline void SetBackgroundColor(Color color) { m_BackgroundColor = color; }
+		inline void SetBackgroundColor(const Color& color) { m_BackgroundColor = color; }
 
 		/*
 		* Get background color

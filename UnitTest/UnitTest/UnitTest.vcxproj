@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Application\Input.cpp" />
     <ClCompile Include="..\..\DataAccess\LocalDb.cpp" />
+    <ClCompile Include="..\..\DataAccess\SortDataCallerMock.cpp" />
     <ClCompile Include="..\..\Gui\Button.cpp" />
     <ClCompile Include="..\..\Gui\EditButton.cpp" />
     <ClCompile Include="..\..\Gui\Keyboard.cpp" />
@@ -89,15 +90,20 @@
     <ClCompile Include="..\..\Gui\ScrollBar.cpp" />
     <ClCompile Include="..\..\Gui\ScrollView.cpp" />
     <ClCompile Include="..\..\Gui\Text.cpp" />
+    <ClCompile Include="..\..\Models\SortModels\Pill.cpp" />
+    <ClCompile Include="..\..\Models\SortModels\SortBox.cpp" />
     <ClCompile Include="..\..\vendor\Sqlite3\sqlite3.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Tests\ButtonUnitTest.h" />
-    <ClCompile Include="Tests\EditButtonUnitTest.h" />
+    <ClCompile Include="SortDataCallerTest.cpp" />
+    <ClCompile Include="Tests\ButtonUnitTest.cpp" />
+    <ClCompile Include="Tests\EditButtonUnitTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Application\Input.h" />
     <ClInclude Include="..\..\DataAccess\IMedicineCardAccess.h" />
+    <ClInclude Include="..\..\DataAccess\ISortBoxesAccess.h" />
     <ClInclude Include="..\..\DataAccess\LocalDb.h" />
+    <ClInclude Include="..\..\DataAccess\SortDataCallerMock.h" />
     <ClInclude Include="..\..\Dto\MedicineCardDto.h" />
     <ClInclude Include="..\..\Gui\Button.h" />
     <ClInclude Include="..\..\Gui\EditButton.h" />
@@ -110,14 +116,16 @@
     <ClInclude Include="..\..\Gui\ScrollBar.h" />
     <ClInclude Include="..\..\Gui\ScrollView.h" />
     <ClInclude Include="..\..\Gui\Text.h" />
+    <ClInclude Include="..\..\Models\SortModels\Pill.h" />
+    <ClInclude Include="..\..\Models\SortModels\SortBox.h" />
     <ClInclude Include="..\..\vendor\Raylib\Raylib.h" />
     <ClInclude Include="..\..\vendor\Sqlite3\sqlite3.h" />
     <ClInclude Include="..\..\vendor\Sqlite3\sqlite3ext.h" />
     <ClInclude Include="TestFramework.h" />
-    <ClInclude Include="Tests\MedicineButtonUnitTest.h" />
-    <ClInclude Include="Tests\RectangleUnitTest.h" />
-    <ClInclude Include="Tests\ScrollbarUnitTest.h" />
-    <ClInclude Include="Tests\ScrollbarViewUnitTest.h" />
+    <ClCompile Include="Tests\MedicineButtonUnitTest.cpp" />
+    <ClCompile Include="Tests\RectangleUnitTest.cpp" />
+    <ClCompile Include="Tests\ScrollbarUnitTest.cpp" />
+    <ClCompile Include="Tests\ScrollbarViewUnitTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SmartDispenser.vcxproj">

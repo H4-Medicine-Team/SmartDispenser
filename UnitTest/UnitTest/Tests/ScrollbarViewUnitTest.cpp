@@ -1,16 +1,16 @@
 #pragma once
 #include <TestFramework.h>
-#include "../../Gui/MedicineButton.h"
+#include "../../Gui/ScrollView.h"
 
 static bool EqualVector(const Vector2& v1, const Vector2& v2) {
 	return (v1.x == v2.x && v1.y == v2.y);
 }
 
-TESTCLASS_(MedicineButtonShould, HaveSamePositionWhenCreated) {
+TESTCASE(ScrollBarView, HaveSamePositionWhenCreated) {
 	// Arrange
 	Vector2 expectedPos = { 0, 0 };
 	Vector2 btnPos;
-	auto btn = Gui::MedicineButton({0, 0}, { 100, 100 });
+	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
 
 	// Act
 	btnPos = btn.GetPos();
@@ -19,11 +19,11 @@ TESTCLASS_(MedicineButtonShould, HaveSamePositionWhenCreated) {
 	ASSERT(EqualVector(expectedPos, btnPos));
 };
 
-TESTCLASS_(MedicineButtonShould, HaveCorrectCenterPosition) {
+TESTCASE(ScrollBarView, HaveCorrectCenterPosition) {
 	// Arrange
 	Vector2 expectedPos = { 50, 50 };
 	Vector2 btnPos;
-	auto btn = Gui::MedicineButton({ 0, 0 }, { 100, 100 });
+	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
 
 	// Act
 	btnPos = btn.GetCenter();
@@ -32,11 +32,11 @@ TESTCLASS_(MedicineButtonShould, HaveCorrectCenterPosition) {
 	ASSERT(EqualVector(expectedPos, btnPos));
 };
 
-TESTCLASS_(MedicineButtonShould, IsDefaultVisible) {
+TESTCASE(ScrollBarView, IsDefaultVisible) {
 	// Arrange
 	bool expected = true;
 	bool actual;
-	auto btn = Gui::MedicineButton({ 0, 0 }, { 100, 100 });
+	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
 
 	// Act
 	actual = btn.IsVisible();
@@ -45,11 +45,11 @@ TESTCLASS_(MedicineButtonShould, IsDefaultVisible) {
 	ASSERT(expected == actual);
 };
 
-TESTCLASS_(MedicineButtonShould, SizeIsActual) {
+TESTCASE(ScrollBarView, SizeIsActual) {
 	// Arrange
 	Vector2 expected = { 100, 100 };
 	Vector2 actual;
-	auto btn = Gui::MedicineButton({ 0, 0 }, { 100, 100 });
+	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
 
 	// Act
 	actual = btn.GetSize();

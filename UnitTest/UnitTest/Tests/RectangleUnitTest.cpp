@@ -1,16 +1,16 @@
 #pragma once
 #include <TestFramework.h>
-#include "../../Gui/ScrollView.h"
+#include "../../Gui/Rectangle.h"
 
 static bool EqualVector(const Vector2& v1, const Vector2& v2) {
 	return (v1.x == v2.x && v1.y == v2.y);
 }
 
-TESTCLASS_(ScrollBarView, HaveSamePositionWhenCreated) {
+TESTCASE(RectangleShould, HaveSamePositionWhenCreated) {
 	// Arrange
 	Vector2 expectedPos = { 0, 0 };
 	Vector2 btnPos;
-	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
+	auto btn = Gui::Rectangle({ 0, 0 }, { 100, 100 });
 
 	// Act
 	btnPos = btn.GetPos();
@@ -19,11 +19,11 @@ TESTCLASS_(ScrollBarView, HaveSamePositionWhenCreated) {
 	ASSERT(EqualVector(expectedPos, btnPos));
 };
 
-TESTCLASS_(ScrollBarView, HaveCorrectCenterPosition) {
+TESTCASE(RectangleShould, HaveCorrectCenterPosition) {
 	// Arrange
 	Vector2 expectedPos = { 50, 50 };
 	Vector2 btnPos;
-	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
+	auto btn = Gui::Rectangle({ 0, 0 }, { 100, 100 });
 
 	// Act
 	btnPos = btn.GetCenter();
@@ -32,11 +32,11 @@ TESTCLASS_(ScrollBarView, HaveCorrectCenterPosition) {
 	ASSERT(EqualVector(expectedPos, btnPos));
 };
 
-TESTCLASS_(ScrollBarView, IsDefaultVisible) {
+TESTCASE(RectangleShould, IsDefaultVisible) {
 	// Arrange
 	bool expected = true;
 	bool actual;
-	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
+	auto btn = Gui::Rectangle({ 0, 0 }, { 100, 100 });
 
 	// Act
 	actual = btn.IsVisible();
@@ -45,11 +45,11 @@ TESTCLASS_(ScrollBarView, IsDefaultVisible) {
 	ASSERT(expected == actual);
 };
 
-TESTCLASS_(ScrollBarView, SizeIsActual) {
+TESTCASE(RectangleShould, SizeIsActual) {
 	// Arrange
 	Vector2 expected = { 100, 100 };
 	Vector2 actual;
-	auto btn = Gui::ScrollView({ 0, 0 }, { 100, 100 }, { 50, 50 });
+	auto btn = Gui::Rectangle({ 0, 0 }, { 100, 100 });
 
 	// Act
 	actual = btn.GetSize();
