@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\Gui\Button.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\EditButton.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Application\Input.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Keyboard.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\DataAccess\LocalDb.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\MedicineButton.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Page.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Rectangle.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\ScrollBar.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\ScrollView.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\vendor\Sqlite3\sqlite3.c">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Gui\Text.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tests\ButtonUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\EditButtonUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\MedicineButtonUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\RectangleUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\ScrollbarUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\ScrollbarViewUnitTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="SortDataCallerTest.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\DataAccess\SortDataCallerMock.cpp">
+      <Filter>Include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Models\SortModels\Pill.cpp" />
+    <ClCompile Include="..\..\Models\SortModels\SortBox.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Gui\Button.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\EditButton.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Gui.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DataAccess\IMedicineCardAccess.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Application\Input.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Keyboard.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DataAccess\LocalDb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\MedicineButton.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Dto\MedicineCardDto.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Page.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\PageHandler.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vendor\Raylib\Raylib.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Rectangle.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\ScrollBar.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\ScrollView.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vendor\Sqlite3\sqlite3.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\vendor\Sqlite3\sqlite3ext.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Gui\Text.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="TestFramework.h" />
+    <ClInclude Include="..\..\DataAccess\SortDataCallerMock.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\DataAccess\ISortBoxesAccess.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Models\SortModels\Pill.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Models\SortModels\SortBox.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{6059dd75-25ea-4440-b31b-dd7eecef3434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{8209f957-f888-4e6f-a91f-965be4ef5216}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
