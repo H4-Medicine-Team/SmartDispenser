@@ -11,6 +11,8 @@ namespace Gui {
 	{
 		for (int i = 0; i < m_GuiBlocks.size(); i++)
 			delete m_GuiBlocks[i];
+
+		m_GuiBlocks.clear();
 	}
 
 	void Page::Add(Gui* guiBlock)
