@@ -11,8 +11,9 @@
 namespace Page {
 
     static void medCall(Gui::Button* btn, const Vector2& mousePos, bool isPressed) {
-        if (!isPressed)
+        if (!isPressed) {
             Gui::PageHandler::Get().Load<MedicineCardPage>();
+        }
     }
     static void sortCall(Gui::Button* btn, const Vector2& mousePos, bool isPressed) {
         if (!isPressed)
@@ -38,7 +39,7 @@ namespace Page {
 
        
 
-        Gui::Button* sortPageBtn = new Gui::Button("SortPage", { 50, buttonSize.y + 100 }, buttonSize);
+        Gui::Button* sortPageBtn = new Gui::Button("Dosering", { 50, buttonSize.y + 80 }, buttonSize);
         sortPageBtn->SetDefaultStyle(style);
 
 

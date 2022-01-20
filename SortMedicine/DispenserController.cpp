@@ -25,7 +25,11 @@ namespace Sorting {
 		// Calculate the value that the servo motor has to move
 		int rotateValue = distance * 50;
 
-		pwmWrite(GetPin(), rotateValue);
+		pwmWrite(GetPin(), 50);
+		delay(1000);
+		pwmWrite(GetPin(), 150);
+		delay(1000);
+		pwmWrite(GetPin(), 250);
 		delay(1000);
 	}
 }

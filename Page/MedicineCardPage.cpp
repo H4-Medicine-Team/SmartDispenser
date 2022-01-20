@@ -58,7 +58,6 @@ namespace Page {
 		Gui::Button* backBtn = new Gui::Button("Back", { 10, 10 }, { 50, 35 });
 		backBtn->SetClickHandler(backCallback);
 
-		Clear();
 		m_Data = m_Database.GetMedicineCard();
 
 		m_ScrollView = new Gui::ScrollView({ 5, 50 }, { 790, 320 }, { 30, 40 });

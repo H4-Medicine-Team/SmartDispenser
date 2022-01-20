@@ -1,14 +1,14 @@
 #pragma once
 #include <iostream>
 
-#include "../Gui/Page.h"
 #include "../Gui/Button.h"
 #include "../Models/SortModels/SortBox.h"
 #include "../SortMedicine/ISortDataManager.h"
 #include "../SortMedicine/DispenserController.h"
 #include "../SortMedicine/SortManager.h"
 #include "../DataAccess/SortDataCaller.h"
-
+#include "../Gui/PageHandler.h"
+#include "../Page/MainPage.h"
 namespace Page {
 
 	class SortPage : public Gui::Page
